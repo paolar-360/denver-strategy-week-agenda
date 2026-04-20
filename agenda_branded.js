@@ -357,33 +357,27 @@ const children = [
     blk("2:00 PM",  "System Map \u2014 Customer Flow",      "Customer side of the map: search \u2192 quote \u2192 booking \u2192 communications \u2192 pickup \u2192 rental experience \u2192 return \u2192 post-trip. Where does it break today? Where does AI create leverage?", "sprint-hi"),
     blk("3:00 PM",  "AI Module Strategy",             "Where do Shakkii\u2019s AI modules create the most leverage on the map? Parallel vs sequential deployment, speed-to-market trade-offs, which operations to automate first, build vs. integrate decisions.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Communications \u2014 Intake & Framing", "Open the Communications pillar for tomorrow. Walk through inbound intake at a high level: partner emails for bookings, infringements, group requests. How the platform captures and routes every inbound message so nothing is lost. Sets the frame for Saturday.", "sprint-hi"),
-    blk("4:30 PM",  "Day 3 Recap",                    "Capture decisions from the day and confirm tomorrow\u2019s agenda.", "sprint-hi"),
-    blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
+    blk("3:45 PM",  "Day 3 Recap",                    "Capture decisions from the day and confirm tomorrow\u2019s agenda.", "sprint-hi"),
+    blk("4:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 4 — Saturday April 25 — COMMUNICATIONS PILLAR
+  // DAY 4 — Saturday April 25 — COMMUNICATIONS PILLAR (half-day)
   // ══════════════════════════════════════════════
   dayHdr(4, "Saturday, April 25", "Communications Pillar \u2014 The USP", "sprint"),
   ...metaLines(
-    "Deep-dive on the communications layer of the platform: every inbound, outbound, internal, and third-party channel. If we nail this, it becomes the unfair advantage.",
+    "Half-day deep-dive on the communications layer of the platform. Every channel consolidated into three working blocks. If we nail this, it becomes the unfair advantage.",
     "Andres, Paola, Matt, Heath, Sam (morning only)"
   ),
-  noteBar("Hypothesis on the table: communications done right is the main USP. We work through every channel and define what the platform owns, what it routes, and what it automates."),
+  noteBar("Short, tight morning. No lunch scheduled \u2014 we close at 1 PM and say farewell to Sam."),
   tbl([
-    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s intake framing. Anchor the day around the full Communications pillar.", "sprint-hi"),
-    blk("10:15 AM", "Outbound Communications",        "Transactional, marketing, and service-recovery comms to customers and third parties. Tone, timing, channel selection, fallback rules.", "sprint-hi"),
-    blk("11:00 AM", "CRM & Customer Journey",         "Campaign management plus inbound customer comms across email, call, SMS, WhatsApp. One inbox, one history per customer, visible to every relevant role.", "sprint-hi"),
-    blk("11:30 AM", "Break",                          "", "break"),
-    blk("11:45 AM", "Internal Staff Comms",           "Replace WhatsApp chaos: one platform for follow-ups, items being tracked, shift handoffs, and operational alerts. Staff know where everything lives.", "sprint-hi"),
-    blk("12:30 PM", "Third-Party Repairer & Service Network", "Work tickets, scheduling, and limited-access portals for repairers and service partners. They see what they need, nothing more. Vehicle, repair history, comms \u2014 all in one ticket.", "sprint-hi"),
-    blk("1:00 PM",  "Lunch",                          "Sam farewell \u2014 Sam departs after lunch.", "break"),
-    blk("2:00 PM",  "Error Detection & Proactive Resolution", "How the platform catches errors across the customer journey and internal flows. When something breaks (like a failed digital check-in), the system flags it, classifies the root cause, and reaches out to the customer or staff with a recommended fix before it escalates.", "sprint-hi"),
-    blk("3:00 PM",  "Missed-Opportunity Reporting",   "When a search returns no availability, we log it. Reporting on missed demand drives future purchasing, fleet rebalancing, and pricing decisions.", "sprint-hi"),
-    blk("3:30 PM",  "Day 4 Recap",                    "Capture the Communications stack definition. Confirm which modules are MVP vs later waves.", "sprint-hi"),
-    blk("4:00 PM",  "End of Day",                     "", "sprint-hi"),
+    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s themes. Frame the three working blocks of the day: customer comms, internal + partner comms, and proactive monitoring.", "sprint-hi"),
+    blk("10:15 AM", "Customer Communications \u2014 Inbound, Outbound & CRM", "Inbound: partner emails for new bookings, modifications, infringements, group requests \u2014 captured, classified, and routed so nothing is lost. Outbound: transactional, marketing, and service-recovery comms \u2014 tone, timing, channel selection, fallback rules. CRM & journey: inbound customer comms across email/call/SMS/WhatsApp plus campaigns. One inbox, one history per customer, visible to every relevant role.", "sprint-hi"),
+    blk("11:15 AM", "Break",                          "", "break"),
+    blk("11:30 AM", "Internal Staff & Third-Party Network Comms", "Internal: replace WhatsApp chaos with one platform for follow-ups, items being tracked, shift handoffs, and operational alerts. Third-party repairers and service partners: work tickets, scheduling, and limited-access portals \u2014 they see what they need, nothing more. All vehicle, repair, and partner comms in one place.", "sprint-hi"),
+    blk("12:15 PM", "Proactive Monitoring \u2014 Errors & Missed Opportunities", "Error detection across the customer journey and internal flows: when something breaks (like a failed digital check-in), the system flags it, classifies the root cause, and reaches out to the customer or staff with a recommended fix before it escalates. Missed-opportunity reporting: when a search returns no availability, we log it \u2014 reporting on missed demand drives future purchasing, fleet rebalancing, and pricing.", "sprint-hi"),
+    blk("1:00 PM",  "Close & Sam Farewell",           "Quick wrap-up of Saturday\u2019s Communications decisions. Sam departs.", "hi"),
   ], true),
   sp(),
 
