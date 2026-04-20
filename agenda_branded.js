@@ -357,8 +357,9 @@ const children = [
     blk("2:00 PM",  "System Map \u2014 Customer Flow",      "Customer side of the map: search \u2192 quote \u2192 booking \u2192 communications \u2192 pickup \u2192 rental experience \u2192 return \u2192 post-trip. Where does it break today? Where does AI create leverage?", "sprint-hi"),
     blk("3:00 PM",  "AI Across the Flow",             "Revisit both system maps and mark every touchpoint where AI meaningfully changes the experience or the unit economics. Which operations to automate first (highest impact, lowest complexity). How MCP servers and agents orchestrate the stack end-to-end. Build vs. integrate decisions. Where AI compounds: customer-facing, operations, and fleet intelligence.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Day 3 Recap",                    "Capture decisions from the day and confirm tomorrow\u2019s agenda.", "sprint-hi"),
-    blk("4:00 PM",  "End of Day",                     "", "sprint-hi"),
+    blk("3:45 PM",  "Roadmap \u2014 AI Layer",                "Lock the AI roadmap. Which modules ship in MVP, which in v1.1, which post-Seed. Build vs. integrate per module. MCP servers, agent orchestration, data contracts. How AI connects to RentalBuddy, Communications, and Lemonade over time.", "sprint-hi"),
+    blk("4:30 PM",  "Day 3 Recap",                    "Capture decisions from the day and confirm tomorrow\u2019s agenda.", "sprint-hi"),
+    blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
 
@@ -407,7 +408,7 @@ const children = [
     blk("3:00 PM",  "Rates Engine \u2014 Logic & Overrides", "Seasons, locations, categories. Maintained in-system vs via 3rd-party rate aggregator. When rates re-calculate on bookings. Quote validity and change rules.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
     blk("3:45 PM",  "Do-Not-Rent & Fraud Controls",   "Blacklists, risk checks, manual overrides. How fraud signals surface during booking and at check-in.", "sprint-hi"),
-    blk("4:30 PM",  "Day 6 Recap",                    "Capture the foundations decisions. Flag what is MVP vs later waves.", "sprint-hi"),
+    blk("4:15 PM",  "Roadmap \u2014 RentalBuddy / Booking Core", "Lock the RentalBuddy roadmap. Sequence the transactional core: onboarding, booking engine, rates, payments, real-time fleet data, integrations. MVP, v1.1, post-Seed. Dependencies on the foundations discussed today.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
@@ -429,29 +430,26 @@ const children = [
     blk("2:00 PM",  "Booking Types & Utilization",     "Revenue / Maintenance / Non-Revenue. Automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking, reserved vehicles for unexpected events.", "sprint-hi"),
     blk("3:00 PM",  "Vehicle Management",             "PM and manual servicing, damages, rego, RUC, GPS, activity logs. Cost tracking for ROI reporting. Category changes on vehicles that do not break historical reports. Vehicle swaps mid-rental for fines/tolls.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Outside Access",                 "Website booking flow, agent portal access, check-in process, hiring and returning process, webhooks. Customer-facing documents and branded comms.", "sprint-hi"),
-    blk("4:30 PM",  "Commissions & Financials",       "Staff, referral, and agent commissions tracked through the booking. Agent payments between the RCC and agent \u2014 how we reconcile.", "sprint-hi"),
+    blk("3:45 PM",  "Outside Access & Commissions",   "Website booking flow, agent portal, check-in and hiring/returning process, webhooks. Staff, referral, and agent commissions tracked through the booking. How we reconcile agent payments between the RCC and agent.", "sprint-hi"),
+    blk("4:15 PM",  "Roadmap \u2014 Communications Layer",    "Lock the Communications roadmap. Which modules ship in MVP and in what order: inbound intake, outbound comms, CRM, internal staff, third-party repairer portals, error detection, missed-opportunity reporting. Dependencies on RentalBuddy and AI layer.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 8 — Wednesday April 29 — DECIDE, LOCK ROADMAP & WRAP-UP
+  // DAY 8 — Wednesday April 29 — WRAP-UP, INVESTMENT & DEPARTURES
   // ══════════════════════════════════════════════
-  dayHdr(8, "Wednesday, April 29", "Decide, Lock Roadmap & Wrap-Up", "sprint"),
+  dayHdr(8, "Wednesday, April 29", "Wrap-Up, Investment & Departures"),
   ...metaLines(
-    "Consolidate the week. Lock the product roadmap across RentalBuddy, Shakkii, and the Communications pillar. Confirm owners, next steps, and travel.",
+    "Short morning to consolidate the week, lock action items, confirm investment next steps, and close. Travel in the afternoon.",
     "Andres, Paola, Matt, Heath"
   ),
   tbl([
-    blk("10:00 AM", "Recap & Priority Vote",          "Restate priority themes from Friday through Tuesday. Straw poll across everything: what is in MVP, what is v1.1, what is post-Seed.", "sprint-hi"),
-    blk("10:30 AM", "Roadmap \u2014 RentalBuddy / Transactional Core", "Onboarding, booking engine, rates, payments, real-time fleet data, integrations. Sequence and dependencies.", "sprint-hi"),
-    blk("11:30 AM", "Break",                          "", "break"),
-    blk("11:45 AM", "Roadmap \u2014 Communications Layer",  "Matt\u2019s pillar: inbound, outbound, CRM, internal, third-party repairer, error detection, missed-opportunity reporting. Which modules ship in MVP and in what order.", "sprint-hi"),
-    blk("12:15 PM", "Roadmap \u2014 Shakkii / AI Layer",     "Which AI modules ship in MVP, which in v1.1, which post-Seed. Build vs integrate. How Shakkii connects to RentalBuddy and Lemonade.", "sprint-hi"),
-    blk("12:45 PM", "Closing Lunch / Farewell",       "Informal lunch. Safe travels.", "hi"),
-    blk("2:00 PM",  "Action Items \u2014 All Parties",       "Every action item with owner and deadline: 360 Sierra, Evolve, Wildwood. Reporting cadence confirmed.", "sprint-hi"),
-    blk("2:30 PM",  "Investment \u2014 Next Steps",          "Transfer timeline, SAFE execution steps, reporting structure."),
+    blk("10:00 AM", "Week Recap & Lock",              "Walk through every decision made across the week: maps, AI roadmap, RentalBuddy roadmap, Communications roadmap, Foundations. Confirm nothing is open.", "hi"),
+    blk("10:45 AM", "Action Items \u2014 All Parties",       "Every action item with owner and deadline: 360 Sierra, Evolve, Wildwood. Reporting cadence confirmed.", "hi"),
+    blk("11:15 AM", "Investment \u2014 Next Steps",          "Transfer timeline, SAFE execution steps, reporting structure.", "hi"),
+    blk("11:45 AM", "Closing Remarks & Farewell",     "Acknowledge the work done. Communication cadence going forward.", "hi"),
+    blk("12:00 PM", "End of Week",                    ""),
     blk("Afternoon", "Departures",                    "Travel as scheduled."),
   ]),
 

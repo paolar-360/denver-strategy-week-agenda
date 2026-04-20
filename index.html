@@ -747,8 +747,9 @@
             ['2:00 PM', 'System Map — Customer Flow', 'sprint-hi', 'Customer side of the map: search → quote → booking → communications → pickup → rental experience → return → post-trip. Where does it break today? Where does AI create leverage?'],
             ['3:00 PM', 'AI Across the Flow', 'sprint-hi', 'Revisit both system maps and mark every touchpoint where AI meaningfully changes the experience or the unit economics. Which operations to automate first (highest impact, lowest complexity). How MCP servers and agents orchestrate the stack end-to-end. Build vs. integrate decisions. Where AI compounds: customer-facing, operations, and fleet intelligence.'],
             ['3:30 PM', 'Break', 'break', ''],
-            ['3:45 PM', 'Day 3 Recap', 'sprint-hi', 'Capture decisions from the day and confirm tomorrow\u2019s agenda.'],
-            ['4:00 PM', 'End of Day', 'sprint-hi', '']
+            ['3:45 PM', 'Roadmap — AI Layer', 'sprint-hi', 'Lock the AI roadmap. Which modules ship in MVP, which in v1.1, which post-Seed. Build vs. integrate per module. MCP servers, agent orchestration, data contracts. How AI connects to RentalBuddy, Communications, and Lemonade over time.'],
+            ['4:30 PM', 'Day 3 Recap', 'sprint-hi', 'Capture decisions from the day and confirm tomorrow\u2019s agenda.'],
+            ['5:00 PM', 'End of Day', 'sprint-hi', '']
           ]
         },
         {
@@ -786,7 +787,7 @@
             ['3:00 PM', 'Rates Engine — Logic & Overrides', 'sprint-hi', 'Seasons, locations, categories. Maintained in-system vs via 3rd-party rate aggregator. When rates re-calculate on bookings. Quote validity and change rules.'],
             ['3:30 PM', 'Break', 'break', ''],
             ['3:45 PM', 'Do-Not-Rent & Fraud Controls', 'sprint-hi', 'Blacklists, risk checks, manual overrides. How fraud signals surface during booking and at check-in.'],
-            ['4:30 PM', 'Day 6 Recap', 'sprint-hi', 'Capture the foundations decisions. Flag what is MVP vs later waves.'],
+            ['4:15 PM', 'Roadmap — RentalBuddy / Booking Core', 'sprint-hi', 'Lock the RentalBuddy roadmap. Sequence the transactional core: onboarding, booking engine, rates, payments, real-time fleet data, integrations. MVP, v1.1, post-Seed. Dependencies on the foundations discussed today.'],
             ['5:00 PM', 'End of Day', 'sprint-hi', '']
           ]
         },
@@ -804,25 +805,22 @@
             ['2:00 PM', 'Booking Types & Utilization', 'sprint-hi', 'Revenue / Maintenance / Non-Revenue. Automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking, reserved vehicles for unexpected events.'],
             ['3:00 PM', 'Vehicle Management', 'sprint-hi', 'PM and manual servicing, damages, rego, RUC, GPS, activity logs. Cost tracking for ROI reporting. Category changes on vehicles that do not break historical reports. Vehicle swaps mid-rental for fines/tolls.'],
             ['3:30 PM', 'Break', 'break', ''],
-            ['3:45 PM', 'Outside Access', 'sprint-hi', 'Website booking flow, agent portal access, check-in process, hiring and returning process, webhooks. Customer-facing documents and branded comms.'],
-            ['4:30 PM', 'Commissions & Financials', 'sprint-hi', 'Staff, referral, and agent commissions tracked through the booking. Agent payments between the RCC and agent — how we reconcile.'],
+            ['3:45 PM', 'Outside Access & Commissions', 'sprint-hi', 'Website booking flow, agent portal, check-in and hiring/returning process, webhooks. Staff, referral, and agent commissions tracked through the booking. How we reconcile agent payments between the RCC and agent.'],
+            ['4:15 PM', 'Roadmap — Communications Layer', 'sprint-hi', 'Lock the Communications roadmap. Which modules ship in MVP and in what order: inbound intake, outbound comms, CRM, internal staff, third-party repairer portals, error detection, missed-opportunity reporting. Dependencies on RentalBuddy and AI layer.'],
             ['5:00 PM', 'End of Day', 'sprint-hi', '']
           ]
         },
         {
-          n: 8, date: 'Wednesday, April 29', title: 'Decide, Lock Roadmap & Wrap-Up',
-          sprint: true,
-          desc: 'Consolidate the week. Lock the product roadmap across RentalBuddy, Shakkii, and the Communications pillar. Confirm owners, next steps, and travel.',
+          n: 8, date: 'Wednesday, April 29', title: 'Wrap-Up, Investment & Departures',
+          sprint: false,
+          desc: 'Short morning to consolidate the week, lock action items, confirm investment next steps, and close. Travel in the afternoon.',
           people: 'Andres, Paola, Matt, Heath',
           sessions: [
-            ['10:00 AM', 'Recap & Priority Vote', 'sprint-hi', 'Restate priority themes from Friday through Tuesday. Straw poll across everything: what is in MVP, what is v1.1, what is post-Seed.'],
-            ['10:30 AM', 'Roadmap — RentalBuddy / Transactional Core', 'sprint-hi', 'Onboarding, booking engine, rates, payments, real-time fleet data, integrations. Sequence and dependencies.'],
-            ['11:30 AM', 'Break', 'break', ''],
-            ['11:45 AM', 'Roadmap — Communications Layer', 'sprint-hi', 'Matt\u2019s pillar: inbound, outbound, CRM, internal, third-party repairer, error detection, missed-opportunity reporting. Which modules ship in MVP and in what order.'],
-            ['12:15 PM', 'Roadmap — Shakkii / AI Layer', 'sprint-hi', 'Which AI modules ship in MVP, which in v1.1, which post-Seed. Build vs integrate. How Shakkii connects to RentalBuddy and Lemonade.'],
-            ['12:45 PM', 'Closing Lunch / Farewell', 'hi', 'Informal lunch. Safe travels.'],
-            ['2:00 PM', 'Action Items — All Parties', 'sprint-hi', 'Every action item with owner and deadline: 360 Sierra, Evolve, Wildwood. Reporting cadence confirmed.'],
-            ['2:30 PM', 'Investment — Next Steps', '', 'Transfer timeline, SAFE execution steps, reporting structure.'],
+            ['10:00 AM', 'Week Recap & Lock', 'hi', 'Walk through every decision made across the week: maps, AI roadmap, RentalBuddy roadmap, Communications roadmap, Foundations. Confirm nothing is open.'],
+            ['10:45 AM', 'Action Items — All Parties', 'hi', 'Every action item with owner and deadline: 360 Sierra, Evolve, Wildwood. Reporting cadence confirmed.'],
+            ['11:15 AM', 'Investment — Next Steps', 'hi', 'Transfer timeline, SAFE execution steps, reporting structure.'],
+            ['11:45 AM', 'Closing Remarks & Farewell', 'hi', 'Acknowledge the work done. Communication cadence going forward.'],
+            ['12:00 PM', 'End of Week', '', ''],
             ['Afternoon', 'Departures', '', 'Travel as scheduled.']
           ]
         }
