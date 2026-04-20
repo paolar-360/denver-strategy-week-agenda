@@ -449,7 +449,7 @@ const children = [
   ),
   tbl([
     blk("10:00 AM", "Week Recap & Lock",              "Walk through every decision made across the week: maps, AI roadmap, RentalBuddy roadmap, Communications roadmap, Foundations. Confirm nothing is open.", "hi"),
-    blk("10:45 AM", "Action Items \u2014 All Parties",       "Every action item with owner and deadline: 360 Sierra, Evolve, Wildwood. Reporting cadence confirmed.", "hi"),
+    blk("10:45 AM", "Action Items & Working Cadence",  "Every action item with owner and deadline between 360 Sierra and Evolve. Define the working format from here on: how we meet, how we share progress, how we raise blockers, and the reporting cadence.", "hi"),
     blk("11:15 AM", "Investment \u2014 Next Steps",          "Transfer timeline, SAFE execution steps, reporting structure.", "hi"),
     blk("11:45 AM", "Closing Remarks & Farewell",     "Acknowledge the work done. Communication cadence going forward.", "hi"),
     blk("12:00 PM", "End of Week",                    ""),
