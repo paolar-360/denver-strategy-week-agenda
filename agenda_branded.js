@@ -134,7 +134,7 @@ function formatKeyTable() {
     rows: [
       new TableRow({ children: [hCell("Format", 1600), hCell("Name", 2200), hCell("What it means", 5560)] }),
       kRow("PRESENTATION", C.presText,  C.presBg,     "360 Sierra Story",  "Andres & Paola present. No structured exercises. This is our moment."),
-      kRow("SPRINT-LITE",  C.orangeDeep,C.orangeLight, "Open Sprint",       "Facilitated discussion with a note-taker at the board. Time-boxed but conversational. Used for strategy, pricing, GTM."),
+      kRow("SPRINT-LITE",  C.orangeDeep,C.orangeLight, "Open Sprint",       "Discussion with a note-taker at the board. Time-boxed but conversational. Used for strategy, pricing, GTM."),
       kRow("SPRINT",       C.white,     C.orange,      "Formal Sprint",     "Full GV Sprint methodology: structured exercises, individual sketching, dot voting, firm time-boxes. All product days."),
       kRow("FIXED",        C.fixedText, C.fixedBg,     "Fixed Block",       "Pre-confirmed meeting — time and participants locked."),
     ]
@@ -294,16 +294,16 @@ const children = [
   // ══════════════════════════════════════════════
   dayHdr(1, "Wednesday, April 22", "Vision, Strategy & Investment Structure", "lite"),
   ...metaLines(
-    "360 Sierra tells its story. Open, facilitated sessions on strategy, market positioning, and investment framework.",
+    "360 Sierra tells its story. Open sessions on strategy, market positioning, and investment framework.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  David & Nick join from afternoon"
   ),
   tbl([
     blk("10:00 AM", "Welcome & Week Overview",       "Opening: format, goals, 8-day agenda, Sprint methodology overview. Set expectations for how decisions will be made across the week."),
     blk("10:15 AM", "360 Sierra \u2014 Story, Vision & Product Portfolio", "Origin story, what we are building, why now, and the path to 10,000 and 50,000 vehicles. Walk through the full product architecture: 360 Sierra (company), RentalBuddy (operator management), Shakkii (AI operations), and Lemonade (booking platform). Align on naming and how each product tells part of the overall story.", "presentation"),
     blk("11:30 AM", "Break",                         "", "break"),
-    blk("11:45 AM", "Strategy & Market Positioning", "Facilitated: 3\u20135 year direction, milestones, success metrics (ARR, market share). Competitive differentiation, unfair advantage, and why the market is ready. Note-taker captures on the board.", "hi"),
+    blk("11:45 AM", "Strategy & Market Positioning", "3\u20135 year direction, milestones, and success metrics (ARR, market share). Note-taker captures on the board.", "hi"),
     blk("1:00 PM",  "Lunch",                         "", "break"),
-    blk("2:00 PM",  "Investment Framework",           "Facilitated: SAFE structure, revenue share terms. Capital deployment: where $50K goes, what it unlocks. $50K vs. $200K scenario. David joins.", "hi"),
+    blk("2:00 PM",  "Investment Framework",           "SAFE structure, revenue share terms. Capital deployment: where $50K goes, what it unlocks. $50K vs. $200K scenario. David joins.", "hi"),
     blk("3:00 PM",  "Seed Milestones & Exit Path",   "3\u20134 milestones that unlock the Seed round. Long-term exit considerations and valuation trajectory. What does 5-year success look like?", "hi"),
     blk("3:30 PM",  "Break",                         "", "break"),
     blk("3:45 PM",  "Risk, Open Q&A & De-risking",   "Open floor for remaining investor questions. Address risk factors, execution confidence, and what de-risks the bet."),
@@ -315,19 +315,19 @@ const children = [
   // ══════════════════════════════════════════════
   // DAY 2 — Thursday April 23
   // ══════════════════════════════════════════════
-  dayHdr(2, "Thursday, April 23", "GTM, Products & Design Partner", "lite"),
+  dayHdr(2, "Thursday, April 23", "GTM, Positioning & Design Partner", "lite"),
   ...metaLines(
-    "Facilitated sessions on go-to-market, product portfolio naming, and Evolve\u2019s formal role. Evening: Wildwood dinner.",
+    "Define the go-to-market strategy, competitive positioning, ICP and pricing. Close the Evolve design partner role. Evening: Wildwood dinner.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  Nick joins morning  \u00B7  David joins for 1:1 only"
   ),
   noteBar("Fixed: 1:1 Evolve \u00D7 David \u2014 2:00 to 3:00 PM (Andres and Paola are not in this session)  \u00B7  Evening: dinner at Wildwood"),
   tbl([
     blk("10:00 AM", "Recap & Open Items",              "Resolve any open loops from Day 1 before today\u2019s sessions."),
-    blk("10:15 AM", "Go-to-Market Strategy",           "Facilitated: commercial model, path to 10K vehicles, sales motion, channel strategy, and partnership model. Nick joins.", "hi"),
+    blk("10:15 AM", "Go-to-Market Strategy",           "Define together the commercial model, sales motion, channel strategy, and partnership model. Work through the path to 10K vehicles and align on the approach. Nick joins.", "hi"),
     blk("11:30 AM", "Break",                           "", "break"),
-    blk("11:45 AM", "Competitive Landscape & Differentiation", "Map the competitive field, build a positioning matrix, and articulate 360 Sierra\u2019s unfair advantage. What makes us hard to copy?", "hi"),
+    blk("11:45 AM", "Competitive Landscape & Differentiation", "Map the competitive field and build a positioning matrix. Articulate 360 Sierra\u2019s competitive differentiation and unfair advantage. What makes us hard to copy, and why the market is ready now.", "hi"),
     blk("12:20 PM", "ICP & Pricing Strategy",          "Define the ideal customer profile (operator size, segment, geography) and the pricing logic that fits \u2014 packaging, tiers, contract length.", "hi"),
-    blk("1:00 PM",  "Lunch",                           "Nick departs after lunch.", "break"),
+    blk("1:00 PM",  "Lunch",                           "", "break"),
     blk("2:00 PM",  "1:1 \u2014 Evolve \u00D7 David",             "Evolve team (Matt, Heath, Sam) and David. Private session. Andres and Paola are not present.", "fixed"),
     blk("3:00 PM",  "Evolve as Design Partner",        "Define the role formally: what Evolve contributes, what they receive, how product decisions get made together. Close all open loops before the Sprint.", "hi"),
     blk("3:30 PM",  "Break",                           "", "break"),
@@ -343,7 +343,7 @@ const children = [
   // ══════════════════════════════════════════════
   dayHdr(3, "Friday, April 24", "Map \u2014 Problem Definition & Sprint Target", "sprint"),
   ...metaLines(
-    "Map the full system. Surface real bottlenecks. Lock the Sprint Target. Sam\u2019s last full working day.",
+    "Map the full system. Surface real bottlenecks. Lock the Sprint Target.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  1 Evolve ops team member (in person)"
   ),
   noteBar("Sam participates in the full Map day before departing Saturday morning."),
