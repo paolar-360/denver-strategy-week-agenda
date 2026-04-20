@@ -370,7 +370,6 @@ const children = [
     "Half-day deep-dive on the communications layer of the platform. Every channel consolidated into three working blocks. If we nail this, it becomes the unfair advantage.",
     "Andres, Paola, Matt, Heath, Sam (morning only)"
   ),
-  noteBar("Short, tight morning. No lunch scheduled \u2014 we close at 1 PM and say farewell to Sam."),
   tbl([
     blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s themes. Frame the three working blocks of the day: customer comms, internal + partner comms, and proactive monitoring.", "sprint-hi"),
     blk("10:15 AM", "Customer Communications \u2014 Inbound, Outbound & CRM", "Inbound: partner emails for new bookings, modifications, infringements, group requests \u2014 captured, classified, and routed so nothing is lost. Outbound: transactional, marketing, and service-recovery comms \u2014 tone, timing, channel selection, fallback rules. CRM & journey: inbound customer comms across email/call/SMS/WhatsApp plus campaigns. One inbox, one history per customer, visible to every relevant role.", "sprint-hi"),
@@ -397,7 +396,6 @@ const children = [
     "Work through the non-negotiable base layer of the platform: user access, security, tenant setup, and the full rates engine.",
     "Andres, Paola, Matt, Heath"
   ),
-  noteBar("Sarah\u2019s high-level requirements are on the table. We translate them into product decisions and flag what is MVP, v1.1, or post-Seed."),
   tbl([
     blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s themes. Frame the two foundational blocks of the day: access/security and the rates engine.", "sprint-hi"),
     blk("10:15 AM", "User Access & Security",          "MFA required across the board, no shared users. Role- and location-based access levels. Logging and auditing of every sensitive action. What does the permission matrix look like?", "sprint-hi"),
@@ -422,13 +420,12 @@ const children = [
     "Morning: open conversation with Native Camper Vans on what running a fleet actually feels like. Afternoon: full booking lifecycle, utilization, vehicle management, and outside access.",
     "Andres, Paola, Matt, Heath  \u00B7  1 Evolve ops member (online)  \u00B7  Native Camper Vans (online, morning only)"
   ),
-  noteBar("The Native session is open and honest. We want reality, not polish: what is slow, what is painful, what they wish existed."),
   tbl([
     blk("10:00 AM", "Conversation \u2014 Native + Evolve ops", "Open chat with Native Camper Vans and the Evolve ops member (online). How does running a fleet feel today? What is slow, painful, or missing? Facilitator takes notes. (~75 min)", "sprint-hi"),
     blk("11:30 AM", "Break",                          "", "break"),
     blk("11:45 AM", "Synthesis \u2014 Operator Insights",    "Capture insights on the board and add to the priority themes. Identify the top operational pain points we must solve first.", "sprint-hi"),
     blk("12:20 PM", "Booking Lifecycle \u2014 Quote to Return", "Booking managed from quote through post-return. Re-calculation rules, change logs, extras (optional, mandatory, CDW, fixed/daily/percent fees). Signed rental agreement flow and what happens if a booking changes after signing.", "sprint-hi"),
-    blk("1:00 PM",  "Lunch",                          "Online guests disconnect before lunch.", "break"),
+    blk("1:00 PM",  "Lunch",                          "", "break"),
     blk("2:00 PM",  "Booking Types & Utilization",     "Revenue / Maintenance / Non-Revenue. Automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking, reserved vehicles for unexpected events.", "sprint-hi"),
     blk("3:00 PM",  "Vehicle Management",             "PM and manual servicing, damages, rego, RUC, GPS, activity logs. Cost tracking for ROI reporting. Category changes on vehicles that do not break historical reports. Vehicle swaps mid-rental for fines/tolls.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
