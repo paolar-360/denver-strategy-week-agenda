@@ -664,7 +664,7 @@
   </head>
   <body>
     <div class="topbrand">360 Sierra <span class="accent">×</span> Evolve <span class="accent">×</span> Wildwood</div>
-    <div class="counter"><span class="current">1</span><span class="sep">/</span><span class="total">11</span></div>
+    <div class="counter"><span class="current">1</span><span class="sep">/</span><span class="total">10</span></div>
 
     <button class="arrow left" id="prev" aria-label="Previous slide">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -748,8 +748,7 @@
             ['3:00 PM', 'HMW Sort & Dot Vote', 'sprint-hi', 'Post all HMW notes on the map. Vote with dots. Top clusters reveal the highest-value problems.'],
             ['3:30 PM', 'Break', 'break', ''],
             ['3:45 PM', 'Sprint Target — Decision', 'sprint-hi', 'Decider picks one moment on the map and one Sprint Question to answer. Locked focus for Days 6 and 7. No pivoting after this.'],
-            ['4:15 PM', 'Technical Goals & Baselines', 'sprint-hi', 'Set current baselines: reliability, latency, integration count. Define what these numbers should look like after Sprint execution.'],
-            ['4:45 PM', 'Day 3 Recap', 'sprint-hi', 'Photograph the wall. Document the Map and Sprint Target. Preview Monday.'],
+            ['4:15 PM', 'AI Module Strategy', 'sprint-hi', 'Where do Shakkii’s AI modules create the most leverage? Parallel vs. sequential deployment, speed-to-market trade-offs, which operations to automate first, build vs. integrate decisions. Capstone block of the Map day.'],
             ['5:00 PM', 'End of Day', 'sprint-hi', '']
           ]
         },
@@ -784,7 +783,7 @@
             ['11:30 AM', 'Break', 'break', ''],
             ['11:45 AM', 'Solution Sketch', 'sprint-hi', 'Each person develops a detailed 3-panel sketch for the Sprint Target. Anonymous — no names on sketches. Reviewed and voted on tomorrow.'],
             ['1:00 PM', 'Lunch', 'break', ''],
-            ['2:00 PM', 'AI Module Strategy', 'sprint-hi', 'Where do Shakkii’s AI modules create the most leverage? Parallel vs. sequential deployment, speed-to-market trade-offs, build vs. integrate decisions.'],
+            ['2:00 PM', 'Silent Sketch Finalization', 'sprint-hi', 'Open, quiet work time. Each person polishes their 3-panel sketch before the Gallery Walk. No discussion, no laptops sharing — Sprint-style deep work.'],
             ['3:00 PM', 'Gallery Walk', 'sprint-hi', 'Post all sketches on the wall. Everyone reviews silently, leaving dot stickers on interesting ideas. No commentary yet.'],
             ['3:30 PM', 'Break', 'break', ''],
             ['3:45 PM', 'Heat Map & Sketch Pitches', 'sprint-hi', 'Review where dots cluster. Each person has 1 minute to describe their sketch — no defending, just context.'],
@@ -928,47 +927,7 @@
         });
       });
 
-      // Slide 9 — Portfolio
-      slides.push({
-        label: 'Portfolio',
-        html: `
-          <div class="slide-content">
-            <div class="portfolio-head">
-              <span class="section-label">Reference</span>
-              <h2 class="slide-title">Product <span class="accent">Portfolio</span></h2>
-              <p class="slide-sub">Four products, one platform.</p>
-            </div>
-            <div class="pf-grid">
-              <div class="pf-card">
-                <div class="pf-emoji">🏢</div>
-                <p class="pf-tag">The Company</p>
-                <h3 class="pf-name">360 Sierra</h3>
-                <p class="pf-desc">The parent platform and infrastructure layer. All products are built on top of 360 Sierra.</p>
-              </div>
-              <div class="pf-card">
-                <div class="pf-emoji">🤟</div>
-                <p class="pf-tag">Operator Management</p>
-                <h3 class="pf-name">RentalBuddy</h3>
-                <p class="pf-desc">Front-facing product for rental operators. Fleet management, invoicing, integrations, and day-to-day operations.</p>
-              </div>
-              <div class="pf-card">
-                <div class="pf-emoji">🤖</div>
-                <p class="pf-tag">AI Operations</p>
-                <h3 class="pf-name">Shakkii</h3>
-                <p class="pf-desc">The intelligence layer. AI-powered automations and decision support across RentalBuddy and Lemonade.</p>
-              </div>
-              <div class="pf-card">
-                <div class="pf-emoji">🍋</div>
-                <p class="pf-tag">Booking Platform</p>
-                <h3 class="pf-name">Lemonade</h3>
-                <p class="pf-desc">Transactional and AI-powered booking platform for renters. End-to-end booking, payments, and renter experience.</p>
-              </div>
-            </div>
-          </div>
-        `
-      });
-
-      // Slide 10 — Closing / Download
+      // Slide 9 — Closing / Download
       slides.push({
         label: 'Thank You',
         html: `

@@ -5,13 +5,12 @@
   "description": "Strategy Week Agenda generator + Vercel landing",
   "main": "agenda_branded.js",
   "scripts": {
-    "build": "node agenda_branded.js",
-    "start": "node agenda_branded.js",
+    "generate": "node agenda_branded.js",
     "serve": "node server.js",
     "deploy": "vercel --prod"
   },
   "engines": {
-    "node": ">=18"
+    "node": "20.x"
   },
   "dependencies": {
     "docx": "^9.5.1"

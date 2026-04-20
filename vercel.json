@@ -2,8 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/agenda.js": {
-      "memory": 512,
-      "maxDuration": 30
+      "memory": 1024,
+      "maxDuration": 30,
+      "includeFiles": "agenda_branded.js"
     }
   }
 }
