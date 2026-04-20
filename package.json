@@ -1,0 +1,22 @@
+{
+  "name": "denver-agenda",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Strategy Week Agenda generator + Vercel landing",
+  "main": "agenda_branded.js",
+  "scripts": {
+    "build": "node agenda_branded.js",
+    "start": "node agenda_branded.js",
+    "serve": "node server.js",
+    "deploy": "vercel --prod"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "docx": "^9.5.1"
+  },
+  "devDependencies": {
+    "vercel": "^48.0.0"
+  }
+}

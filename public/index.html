@@ -1,0 +1,1078 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Strategy &amp; Sprint Week — 360 Sierra × Evolve × Wildwood</title>
+    <meta
+      name="description"
+      content="Strategy & Sprint Week — April 22–29, 2026. Denver. Interactive day-by-day presentation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --background: #ffffff;
+        --foreground: #0d0d0d;          /* harder black, YC-style */
+        --body: #2a2a2a;                /* body copy */
+        --card: #fbfaf7;                /* warm off-white */
+        --muted: #f1efe9;
+        --muted-foreground: #4a4a4a;    /* darker for contrast */
+        --border: #d9d6cf;              /* stronger hairline */
+        --border-strong: #1a1a1a;
+        --primary: #ff6600;
+        --primary-deep: #cc4f00;
+        --primary-foreground: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; height: 100%; }
+      body {
+        font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background: var(--background);
+        color: var(--body);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow: hidden;
+        font-feature-settings: "ss01", "cv11";
+      }
+      a { color: inherit; text-decoration: none; }
+
+      /* ─── Stage ──────────────────────────────────────────────── */
+      .stage {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: none;
+        overflow-y: auto;
+      }
+      .slide.active { display: block; }
+      .slide-inner {
+        min-height: 100vh;
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 88px 40px 96px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ─── Background blobs ───────────────────────────────────── */
+      .blob {
+        position: absolute;
+        width: 28rem;
+        height: 28rem;
+        border-radius: 9999px;
+        background: rgba(255, 102, 0, 0.05);
+        filter: blur(72px);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .blob-tl { top: -6rem; left: -8rem; }
+      .blob-br { bottom: -8rem; right: -8rem; }
+      .slide-content { position: relative; z-index: 1; }
+
+      /* ─── Top counter ─────────────────────────────────────────── */
+      .counter {
+        position: fixed;
+        top: 1.25rem;
+        right: 1.25rem;
+        z-index: 50;
+        background: var(--foreground);
+        border: 1px solid var(--foreground);
+        border-radius: 0.5rem;
+        padding: 0.4375rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.04em;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+      }
+      .counter .current { color: var(--primary); font-weight: 800; }
+      .counter .sep { opacity: 0.5; }
+
+      /* ─── Top brand ──────────────────────────────────────────── */
+      .topbrand {
+        position: fixed;
+        top: 1.25rem;
+        left: 1.25rem;
+        z-index: 50;
+        background: var(--foreground);
+        border-radius: 0.5rem;
+        padding: 0.4375rem 0.75rem;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+      .topbrand .accent { color: var(--primary); margin: 0 0.25rem; }
+
+      /* ─── Side arrows ────────────────────────────────────────── */
+      .arrow {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 50;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.625rem;
+        background: var(--foreground);
+        border: 1px solid var(--foreground);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.15s ease, transform 0.15s ease, opacity 0.2s ease;
+      }
+      .arrow:hover { background: var(--primary); border-color: var(--primary); }
+      .arrow:disabled, .arrow[aria-disabled="true"] {
+        opacity: 0.25;
+        cursor: not-allowed;
+      }
+      .arrow.left { left: 1rem; }
+      .arrow.right { right: 1rem; }
+      @media (min-width: 768px) {
+        .arrow.left { left: 1.5rem; }
+        .arrow.right { right: 1.5rem; }
+      }
+      .arrow svg { width: 1.25rem; height: 1.25rem; color: #ffffff; }
+
+      /* ─── Bottom dots ─────────────────────────────────────────── */
+      .dots {
+        position: fixed;
+        bottom: 1.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 50;
+        background: var(--foreground);
+        border-radius: 0.625rem;
+        padding: 0.625rem 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4375rem;
+      }
+      .dot {
+        position: relative;
+        width: 0.4375rem;
+        height: 0.4375rem;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.3);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+      }
+      .dot:hover { background: rgba(255, 255, 255, 0.6); }
+      .dot.active {
+        background: var(--primary);
+        width: 1.25rem;
+        border-radius: 9999px;
+      }
+      .dot[data-tip]:hover::after {
+        content: attr(data-tip);
+        position: absolute;
+        bottom: calc(100% + 0.625rem);
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--foreground);
+        color: #ffffff;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        padding: 0.3125rem 0.5625rem;
+        border-radius: 0.375rem;
+        white-space: nowrap;
+        pointer-events: none;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* ─── Common typography ──────────────────────────────────── */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4375rem 0.875rem;
+        border-radius: 0.5rem;
+        background: var(--primary);
+        border: 1px solid var(--primary);
+        margin-bottom: 1.5rem;
+      }
+      .badge svg { width: 0.875rem; height: 0.875rem; color: #ffffff; }
+      .badge span {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .section-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .section-label::before {
+        content: '';
+        width: 1.5rem;
+        height: 2px;
+        background: var(--primary);
+        display: inline-block;
+      }
+
+      h1.hero-title {
+        font-size: clamp(2.75rem, 7vw, 5.25rem);
+        line-height: 1.0;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        margin: 0 0 1.25rem;
+        text-wrap: balance;
+        color: var(--foreground);
+      }
+      h1.hero-title .accent { color: var(--primary); }
+
+      h2.slide-title {
+        font-size: clamp(2rem, 4.2vw, 3.25rem);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.625rem;
+        text-wrap: balance;
+        color: var(--foreground);
+      }
+      h2.slide-title .accent { color: var(--primary); }
+
+      .slide-sub {
+        font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+        color: var(--body);
+        margin: 0 0 2rem;
+        max-width: 48rem;
+        text-wrap: pretty;
+        line-height: 1.55;
+      }
+
+      /* ─── Hero slide ─────────────────────────────────────────── */
+      .hero {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero .badge { margin-bottom: 1.5rem; }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin: 0 auto 2.5rem;
+      }
+      @media (min-width: 768px) { .stats { gap: 3rem; } }
+      .stat {
+        text-align: center;
+        padding: 0 0.5rem;
+      }
+      .stat-value {
+        font-size: clamp(2.25rem, 3.5vw, 3rem);
+        font-weight: 800;
+        color: var(--foreground);
+        font-variant-numeric: tabular-nums;
+        line-height: 1.0;
+        letter-spacing: -0.03em;
+      }
+      .stat-value .unit { color: var(--primary); }
+      .stat-label {
+        font-size: 0.6875rem;
+        color: var(--muted-foreground);
+        margin-top: 0.5rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .highlight {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--primary);
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem;
+        margin: 0 auto 2rem;
+        max-width: 38rem;
+      }
+      .icon-box {
+        flex-shrink: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.5rem;
+        background: var(--foreground);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-box svg { width: 1.25rem; height: 1.25rem; color: #ffffff; }
+      .highlight-title {
+        font-weight: 700;
+        color: var(--foreground);
+        margin: 0 0 0.1875rem;
+        font-size: 0.9375rem;
+      }
+      .highlight-text {
+        color: var(--body);
+        font-size: 0.875rem;
+        margin: 0;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.625rem;
+        border-radius: 0.5rem;
+        background: var(--primary);
+        color: var(--primary-foreground);
+        font-weight: 700;
+        font-size: 0.9375rem;
+        letter-spacing: -0.005em;
+        transition: background 0.15s ease, transform 0.15s ease;
+        cursor: pointer;
+        border: none;
+      }
+      .cta:hover { background: var(--primary-deep); transform: translateY(-1px); }
+      .cta svg { width: 1.125rem; height: 1.125rem; }
+      .nav-hint {
+        margin-top: 1.5rem;
+        font-size: 0.75rem;
+        color: var(--muted-foreground);
+        letter-spacing: 0.04em;
+      }
+      .nav-hint kbd {
+        display: inline-block;
+        padding: 0.125rem 0.4375rem;
+        border-radius: 0.25rem;
+        background: var(--muted);
+        border: 1px solid var(--border);
+        font-family: inherit;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        color: var(--foreground);
+        margin: 0 0.125rem;
+      }
+
+      /* ─── Day slide ──────────────────────────────────────────── */
+      .day-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        padding-bottom: 1.5rem;
+        border-bottom: 2px solid var(--foreground);
+      }
+      .day-num-big {
+        flex-shrink: 0;
+        width: 4.25rem;
+        height: 4.25rem;
+        border-radius: 0.625rem;
+        background: var(--foreground);
+        color: var(--primary-foreground);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+        gap: 0.125rem;
+      }
+      .day-num-big .lbl {
+        font-size: 0.5625rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: var(--primary);
+      }
+      .day-num-big .num {
+        font-weight: 800;
+        font-size: 1.75rem;
+        letter-spacing: -0.03em;
+      }
+      .slide.sprint .day-num-big { background: var(--primary); }
+      .slide.sprint .day-num-big .lbl { color: var(--foreground); }
+      .day-meta { flex: 1 1 16rem; min-width: 0; }
+      .day-date {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+      .day-tag {
+        display: inline-block;
+        margin-left: 0.625rem;
+        padding: 0.1875rem 0.5rem;
+        border-radius: 0.25rem;
+        background: var(--primary);
+        color: var(--primary-foreground);
+        font-size: 0.625rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        vertical-align: middle;
+      }
+      .day-people {
+        font-size: 0.8125rem;
+        color: var(--body);
+        margin-top: 0.625rem;
+        padding-top: 0.625rem;
+        border-top: 1px solid var(--border);
+      }
+      .day-people strong {
+        color: var(--foreground);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.6875rem;
+        margin-right: 0.5rem;
+      }
+
+      .note-bar {
+        background: var(--foreground);
+        border: 1px solid var(--foreground);
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.8125rem;
+        color: #ffffff;
+        margin: 0 0 1.25rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.625rem;
+        font-weight: 500;
+      }
+      .note-bar svg { flex-shrink: 0; width: 1rem; height: 1rem; color: var(--primary); margin-top: 0.125rem; }
+
+      .sessions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      @media (min-width: 900px) {
+        .sessions { grid-template-columns: 1fr 1fr; gap: 0.625rem; }
+      }
+      .session {
+        display: grid;
+        grid-template-columns: 5.25rem 1fr;
+        gap: 0.875rem;
+        padding: 0.75rem 0.875rem 0.75rem 0.75rem;
+        border-radius: 0.375rem;
+        background: var(--background);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--border);
+        transition: border-left-color 0.15s ease, background 0.15s ease;
+      }
+      .session:hover { background: var(--card); }
+      .s-time {
+        font-size: 0.8125rem;
+        font-weight: 700;
+        color: var(--foreground);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+        padding-top: 0.0625rem;
+      }
+      .s-body { min-width: 0; }
+      .s-title {
+        font-weight: 700;
+        color: var(--foreground);
+        font-size: 0.875rem;
+        line-height: 1.35;
+        margin: 0 0 0.1875rem;
+        letter-spacing: -0.005em;
+      }
+      .s-detail {
+        color: var(--body);
+        font-size: 0.8125rem;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .s-tag {
+        display: inline-block;
+        margin-left: 0.4375rem;
+        padding: 0.0625rem 0.4375rem;
+        border-radius: 0.1875rem;
+        font-size: 0.5625rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        vertical-align: middle;
+        line-height: 1.5;
+      }
+
+      .session.sprint-hi {
+        border-left-color: var(--primary);
+        background: var(--card);
+      }
+      .session.sprint-hi .s-time { color: var(--primary); }
+      .session.hi {
+        border-left-color: var(--primary);
+      }
+      .session.hi .s-time { color: var(--primary); }
+      .session.fixed {
+        border-left-color: #c0392b;
+        background: #fdf3f1;
+      }
+      .session.fixed .s-time { color: #962a1f; }
+      .session.fixed .s-tag { background: #c0392b; color: #ffffff; }
+      .session.presentation {
+        border-left-color: #b8860b;
+        background: #fdf8e8;
+      }
+      .session.presentation .s-time { color: #6b4f04; }
+      .session.presentation .s-tag { background: #b8860b; color: #ffffff; }
+      .session.product {
+        border-left-color: #a02c7d;
+        background: #fbf1f7;
+      }
+      .session.product .s-time { color: #6f1f55; }
+      .session.product .s-tag { background: #a02c7d; color: #ffffff; }
+      .session.break {
+        background: var(--muted);
+        border-color: var(--border);
+        border-left-color: var(--border);
+      }
+      .session.break .s-time { color: var(--muted-foreground); font-weight: 600; }
+      .session.break .s-title { color: var(--muted-foreground); font-weight: 600; }
+
+      .day-rest {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 1rem;
+      }
+      .day-rest .star { color: var(--primary); font-size: 1.75rem; }
+      .day-rest .label { color: var(--muted-foreground); font-size: 1.125rem; }
+
+      /* ─── Portfolio slide ────────────────────────────────────── */
+      .portfolio-head {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .portfolio-head .section-label,
+      .portfolio-head .slide-sub {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .portfolio-head .slide-sub { margin-bottom: 0; }
+      .pf-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 768px) { .pf-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .pf-grid { grid-template-columns: repeat(4, 1fr); } }
+      .pf-card {
+        background: var(--background);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--foreground);
+        border-radius: 0.375rem;
+        padding: 1.5rem;
+        transition: border-top-color 0.2s ease, transform 0.2s ease;
+      }
+      .pf-card:hover { border-top-color: var(--primary); transform: translateY(-2px); }
+      .pf-emoji { font-size: 1.75rem; line-height: 1; margin-bottom: 0.75rem; }
+      .pf-name {
+        font-weight: 800;
+        margin: 0 0 0.25rem;
+        font-size: 1.125rem;
+        color: var(--foreground);
+        letter-spacing: -0.015em;
+      }
+      .pf-tag {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 0.6875rem;
+        margin: 0 0 0.625rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .pf-desc { color: var(--body); font-size: 0.875rem; line-height: 1.55; margin: 0; }
+
+      /* ─── Closing slide ──────────────────────────────────────── */
+      .closing {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* ─── Slide entrance animation ───────────────────────────── */
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .slide.active .slide-content > * {
+        opacity: 0;
+        animation: slideIn 0.5s ease-out forwards;
+      }
+      .slide.active .slide-content > *:nth-child(1) { animation-delay: 0.05s; }
+      .slide.active .slide-content > *:nth-child(2) { animation-delay: 0.12s; }
+      .slide.active .slide-content > *:nth-child(3) { animation-delay: 0.2s; }
+      .slide.active .slide-content > *:nth-child(4) { animation-delay: 0.28s; }
+      .slide.active .slide-content > *:nth-child(5) { animation-delay: 0.34s; }
+      .slide.active .slide-content > *:nth-child(6) { animation-delay: 0.4s; }
+      .slide.active .slide-content > *:nth-child(7) { animation-delay: 0.46s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .slide.active .slide-content > * { animation: none; opacity: 1; }
+      }
+
+      /* Hide UI elements when printing */
+      @media print {
+        body { overflow: visible; }
+        .arrow, .dots, .counter, .topbrand { display: none !important; }
+        .stage { height: auto; }
+        .slide { display: block; position: static; page-break-after: always; }
+        .slide-inner { padding: 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbrand">360 Sierra <span class="accent">×</span> Evolve <span class="accent">×</span> Wildwood</div>
+    <div class="counter"><span class="current">1</span><span class="sep">/</span><span class="total">11</span></div>
+
+    <button class="arrow left" id="prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="arrow right" id="next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <main class="stage" id="stage"></main>
+
+    <nav class="dots" id="dots" aria-label="Slide navigation"></nav>
+
+    <script>
+      // ─── Agenda data ────────────────────────────────────────────
+      const TYPE_LABELS = {
+        presentation: 'Presentation',
+        product: 'Products',
+        fixed: 'Fixed',
+        hi: '',
+        'sprint-hi': '',
+        break: '',
+        '': ''
+      };
+
+      const DAYS = [
+        {
+          n: 1, date: 'Wednesday, April 22', title: 'Vision, Strategy & Investment Structure',
+          sprint: false,
+          desc: '360 Sierra tells its story. Open, facilitated sessions on strategy, market positioning, and investment framework.',
+          people: 'Andres, Paola, Matt, Heath, Sam · David & Nick join from afternoon',
+          sessions: [
+            ['10:00 AM', 'Welcome & Week Overview', '', 'Opening: format, goals, 8-day agenda, Sprint methodology overview. Set expectations for how decisions will be made across the week.'],
+            ['10:15 AM', '360 Sierra — Story, Vision & Product Portfolio', 'presentation', 'Origin story, what we are building, why now, and the path to 10,000 and 50,000 vehicles. Walk through the full product architecture: 360 Sierra (company), RentalBuddy (operator management), Shakkii (AI operations), and Lemonade (booking platform). Align on naming and how each product tells part of the overall story.'],
+            ['11:30 AM', 'Break', 'break', ''],
+            ['11:45 AM', 'Strategy & Market Positioning', 'hi', 'Facilitated: 3–5 year direction, milestones, success metrics (ARR, market share). Competitive differentiation, unfair advantage, and why the market is ready.'],
+            ['1:00 PM', 'Lunch', 'break', ''],
+            ['2:00 PM', 'Investment Framework', 'hi', 'Facilitated: SAFE structure, revenue share terms. Capital deployment: where $50K goes, what it unlocks. $50K vs. $200K scenario.'],
+            ['3:00 PM', 'Seed Milestones & Exit Path', 'hi', '3–4 milestones that unlock the Seed round. Long-term exit considerations and valuation trajectory. What does 5-year success look like?'],
+            ['3:30 PM', 'Break', 'break', ''],
+            ['3:45 PM', 'Risk, Open Q&A & De-risking', '', 'Open floor for remaining investor questions. Address risk factors, execution confidence, and what de-risks the bet.'],
+            ['4:30 PM', 'Day 1 Recap', '', 'Capture decisions and open items on the board. David and Nick depart. Preview tomorrow.'],
+            ['5:00 PM', 'End of Day', '', '']
+          ]
+        },
+        {
+          n: 2, date: 'Thursday, April 23', title: 'GTM, Products & Design Partner',
+          sprint: false,
+          desc: 'Facilitated sessions on go-to-market, product portfolio naming, and Evolve’s formal role. Evening: Wildwood dinner.',
+          people: 'Andres, Paola, Matt, Heath, Sam · Nick joins morning · David joins for 1:1 only',
+          note: 'Fixed: 1:1 Evolve × David — 2:00 to 3:00 PM (Andres and Paola are not in this session) · Evening: dinner at Wildwood',
+          sessions: [
+            ['10:00 AM', 'Recap & Open Items', '', 'Resolve any open loops from Day 1 before today’s sessions.'],
+            ['10:15 AM', 'Go-to-Market Strategy', 'hi', 'Facilitated: commercial model, path to 10K vehicles, sales motion, channel strategy, and partnership model. Nick joins.'],
+            ['11:30 AM', 'Break', 'break', ''],
+            ['11:45 AM', 'Competitive Landscape & Differentiation', 'hi', 'Map the competitive field, build a positioning matrix, and articulate 360 Sierra’s unfair advantage. What makes us hard to copy?'],
+            ['12:20 PM', 'ICP & Pricing Strategy', 'hi', 'Define the ideal customer profile (operator size, segment, geography) and the pricing logic that fits — packaging, tiers, contract length.'],
+            ['1:00 PM', 'Lunch', 'break', 'Nick departs after lunch.'],
+            ['2:00 PM', '1:1 — Evolve × David', 'fixed', 'Evolve team (Matt, Heath, Sam) and David. Private session. Andres and Paola are not present.'],
+            ['3:00 PM', 'Evolve as Design Partner', 'hi', 'Define the role formally: what Evolve contributes, what they receive, how product decisions get made together. Close all open loops before the Sprint.'],
+            ['3:30 PM', 'Break', 'break', ''],
+            ['3:45 PM', 'Commercial Targets & Alignment', '', 'Align on Year 1 commercial targets. Confirm the shared 12-month execution picture.'],
+            ['4:45 PM', 'Day 2 Recap', '', 'Capture decisions and action items. Preview Sprint Day 1 tomorrow.'],
+            ['5:00 PM', 'End of Day', '', ''],
+            ['Evening', 'Dinner — Wildwood', 'hi', 'Group dinner. Time and location confirmed separately.']
+          ]
+        },
+        {
+          n: 3, date: 'Friday, April 24', title: 'Map — Problem Definition & Sprint Target',
+          sprint: true,
+          desc: 'Map the full system. Surface real bottlenecks. Lock the Sprint Target. Sam’s last full working day.',
+          people: 'Andres, Paola, Matt, Heath, Sam · 1 Evolve ops team member (in person)',
+          note: 'Sam participates in the full Map day before departing Saturday morning.',
+          sessions: [
+            ['10:00 AM', 'Sprint Kickoff', 'sprint-hi', 'Ground rules: no laptops during exercises, one Decider, time-boxes are firm. Goal: a completed System Map and locked Sprint Target.'],
+            ['10:20 AM', 'Long-Term Goal', 'sprint-hi', '“Why are we doing this? Where does 360 Sierra need to be in 3 years?” Written on the board. Anchors every Sprint decision.'],
+            ['10:50 AM', 'Sprint Questions', 'sprint-hi', 'What are we most afraid of? Each risk becomes a testable question: “Can we achieve X by end of this Sprint?”'],
+            ['11:30 AM', 'Break', 'break', ''],
+            ['11:45 AM', 'System Map', 'sprint-hi', 'Draw the full workflow: vehicle onboarding → transaction → fleet dashboard → operator. Mark every actor, handoff, and integration. Flag friction in red.'],
+            ['1:00 PM', 'Lunch', 'break', ''],
+            ['2:00 PM', 'Expert Interviews', 'sprint-hi', 'Structured 10–15 min conversations with each person in the room, including the Evolve ops team member. Facilitator takes How Might We (HMW) notes.'],
+            ['3:00 PM', 'HMW Sort & Dot Vote', 'sprint-hi', 'Post all HMW notes on the map. Vote with dots. Top clusters reveal the highest-value problems.'],
+            ['3:30 PM', 'Break', 'break', ''],
+            ['3:45 PM', 'Sprint Target — Decision', 'sprint-hi', 'Decider picks one moment on the map and one Sprint Question to answer. Locked focus for Days 6 and 7. No pivoting after this.'],
+            ['4:15 PM', 'Technical Goals & Baselines', 'sprint-hi', 'Set current baselines: reliability, latency, integration count. Define what these numbers should look like after Sprint execution.'],
+            ['4:45 PM', 'Day 3 Recap', 'sprint-hi', 'Photograph the wall. Document the Map and Sprint Target. Preview Monday.'],
+            ['5:00 PM', 'End of Day', 'sprint-hi', '']
+          ]
+        },
+        {
+          n: 4, date: 'Saturday, April 25', title: 'Backup / Overflow — Morning Only',
+          sprint: false,
+          desc: 'Optional buffer morning. Sam departs today.',
+          people: 'Andres, Paola, Matt, Heath, Sam (morning only)',
+          sessions: [
+            ['10:00 AM', 'Morning Check-in', '', 'Assess where the week stands. Decide together how to use the morning.'],
+            ['10:15 AM', 'Option A — Overflow', '', 'Resolve any open items from Days 1–3: investment terms, GTM, design partner scope, or unfinished Map work.'],
+            ['10:15 AM', 'Option B — Deep-Dive', '', 'Go deeper on one topic: AI architecture, product naming, pricing, or competitive landscape.'],
+            ['10:15 AM', 'Option C — Informal', '', 'Rest or unstructured time. Relationship-building matters.'],
+            ['12:00 PM', 'Sam Farewell', 'hi', 'Sam departs. Informal close to the morning.'],
+            ['12:30 PM', 'End of Morning', '', 'No afternoon session.']
+          ]
+        },
+        {
+          n: 5, date: 'Sunday, April 26', title: 'Rest Day',
+          sprint: false,
+          rest: true
+        },
+        {
+          n: 6, date: 'Monday, April 27', title: 'Sketch — Ideation & AI Strategy',
+          sprint: true,
+          desc: 'Generate solutions independently. Compare through structure, not debate. Define the AI module strategy.',
+          people: 'Andres, Paola, Matt, Heath',
+          sessions: [
+            ['10:00 AM', 'Recap & Sprint Target Review', 'sprint-hi', 'Reconnect with the Map and Sprint Target from Friday. Restate the Long-Term Goal.'],
+            ['10:20 AM', 'Lightning Demos', 'sprint-hi', '3 minutes each: one inspiring example relevant to the Sprint Target — a product, workflow, or idea. Facilitator captures “big ideas.”'],
+            ['11:00 AM', 'Crazy 8s', 'sprint-hi', 'Individual exercise: fold paper into 8 panels. Sketch 8 different solution ideas in 8 minutes. Forces quantity over quality. Solo work only.'],
+            ['11:30 AM', 'Break', 'break', ''],
+            ['11:45 AM', 'Solution Sketch', 'sprint-hi', 'Each person develops a detailed 3-panel sketch for the Sprint Target. Anonymous — no names on sketches. Reviewed and voted on tomorrow.'],
+            ['1:00 PM', 'Lunch', 'break', ''],
+            ['2:00 PM', 'AI Module Strategy', 'sprint-hi', 'Where do Shakkii’s AI modules create the most leverage? Parallel vs. sequential deployment, speed-to-market trade-offs, build vs. integrate decisions.'],
+            ['3:00 PM', 'Gallery Walk', 'sprint-hi', 'Post all sketches on the wall. Everyone reviews silently, leaving dot stickers on interesting ideas. No commentary yet.'],
+            ['3:30 PM', 'Break', 'break', ''],
+            ['3:45 PM', 'Heat Map & Sketch Pitches', 'sprint-hi', 'Review where dots cluster. Each person has 1 minute to describe their sketch — no defending, just context.'],
+            ['4:30 PM', 'Day 6 Recap', 'sprint-hi', 'Document all sketches. Preview the Decide day.'],
+            ['5:00 PM', 'End of Day', 'sprint-hi', '']
+          ]
+        },
+        {
+          n: 7, date: 'Tuesday, April 28', title: 'Decide — Roadmap Lock-In',
+          sprint: true,
+          desc: 'Open conversation with Native in the morning. Vote, decide, and lock the full product roadmap in the afternoon.',
+          people: 'Andres, Paola, Matt, Heath · 1 Evolve ops member (online) · Native Camper Vans (online, morning only)',
+          note: 'The Native session is an open conversation — casual and honest. We want to hear how operating a fleet actually feels, what’s frustrating, and what they wish existed.',
+          sessions: [
+            ['10:00 AM', 'Conversation — Native + Evolve ops', 'sprint-hi', 'Open chat with Native Camper Vans and the Evolve ops member (online). How does running a fleet feel today? What is slow, painful, or missing? (~75 min)'],
+            ['11:30 AM', 'Break', 'break', ''],
+            ['11:45 AM', 'Synthesis & Speed Critique', 'sprint-hi', 'Synthesize the conversation insights. Add to the board. Then 5 min per sketch: facilitator narrates, author silent, group asks clarifying questions only.'],
+            ['1:00 PM', 'Lunch', 'break', 'Online guests disconnect before lunch.'],
+            ['2:00 PM', 'Decision — Straw Poll', 'sprint-hi', 'Everyone votes for the sketch they want to build. Votes converge — done. Split — Decider calls it. One direction, locked.'],
+            ['2:30 PM', 'Roadmap — RentalBuddy / Transactional Core', 'sprint-hi', 'Development sequence: onboarding, invoicing, real-time fleet data, integrations. Priorities, milestones, dependencies.'],
+            ['3:30 PM', 'Break', 'break', ''],
+            ['3:45 PM', 'Roadmap — Shakkii / AI Layer', 'sprint-hi', 'Which AI modules ship in MVP, which in v1.1, which post-Seed. Build vs. integrate decisions. How Shakkii connects to RentalBuddy and Lemonade.'],
+            ['4:15 PM', 'Full Week Review & Lock', 'sprint-hi', 'Walk through every decision made across the whole week. Confirm nothing is open. Final alignment check before departure day.'],
+            ['4:45 PM', 'Closing Remarks', 'sprint-hi', 'Acknowledge the work done. Next steps and communication cadence.'],
+            ['5:00 PM', 'End of Day', 'sprint-hi', '']
+          ]
+        },
+        {
+          n: 8, date: 'Wednesday, April 29', title: 'Wrap-Up & Departures',
+          sprint: false,
+          desc: 'Final roadmap confirmation, action items, investment next steps, and travel.',
+          people: 'Andres, Paola, Matt, Heath',
+          sessions: [
+            ['10:00 AM', 'Final Roadmap Review', '', 'One last pass through the locked roadmap. All priorities, timelines, and open items confirmed.'],
+            ['10:45 AM', 'Action Items — All Parties', 'hi', 'Every action item listed with owner and deadline: 360 Sierra, Evolve, Wildwood. Reporting cadence confirmed.'],
+            ['11:30 AM', 'Break', 'break', ''],
+            ['11:45 AM', 'Investment — Next Steps', '', 'Transfer timeline, SAFE execution steps, reporting structure.'],
+            ['12:15 PM', 'Closing Lunch / Farewell', 'hi', 'Informal lunch. Safe travels.'],
+            ['Afternoon', 'Departures', '', 'Travel as scheduled.']
+          ]
+        }
+      ];
+
+      const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+      // ─── Build slides ───────────────────────────────────────────
+      const slides = [];
+
+      // Slide 0 — Hero
+      slides.push({
+        label: 'Welcome',
+        html: `
+          <div class="blob blob-tl"></div>
+          <div class="blob blob-br"></div>
+          <div class="slide-content hero">
+            <div class="badge">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2l2.39 6.95L21.5 9.27l-5.18 4.73 1.61 7L12 17.27 6.07 21l1.61-7L2.5 9.27l7.11-.32L12 2z"/>
+              </svg>
+              <span>360 Sierra × Evolve × Wildwood</span>
+            </div>
+            <h1 class="hero-title">Strategy &amp; <span class="accent">Sprint Week</span></h1>
+            <p class="slide-sub" style="text-align:center;margin-left:auto;margin-right:auto;">
+              Eight focused days to align strategy, run a Design Sprint, and lock the roadmap together.
+            </p>
+            <div class="stats">
+              <div class="stat"><div class="stat-value">8</div><div class="stat-label">Days</div></div>
+              <div class="stat"><div class="stat-value">3</div><div class="stat-label">Sprint Days</div></div>
+              <div class="stat"><div class="stat-value">10<span class="unit">–</span>5</div><div class="stat-label">Daily Hours</div></div>
+            </div>
+            <div class="highlight">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+              </div>
+              <div>
+                <p class="highlight-title">April 22 – 29, 2026 · Denver</p>
+                <p class="highlight-text">10:00 AM – 5:00 PM &nbsp;·&nbsp; Breaks 11:30 &amp; 3:30 &nbsp;·&nbsp; Lunch 1:00 PM</p>
+              </div>
+            </div>
+            <p class="nav-hint">Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd> to navigate · <kbd>F</kbd> for fullscreen</p>
+          </div>
+        `
+      });
+
+      // Slides 1..8 — One per day
+      DAYS.forEach((day) => {
+        const tag = day.sprint ? '<span class="day-tag">Sprint</span>' : '';
+        let body = `
+          <header class="day-header">
+            <div class="day-num-big"><span class="lbl">DAY</span><span class="num">${day.n}</span></div>
+            <div class="day-meta">
+              <div class="day-date">${escape(day.date)}</div>
+              <h2 class="slide-title">${escape(day.title)}${tag}</h2>
+              ${day.desc ? `<p class="slide-sub" style="margin-bottom:0.5rem">${escape(day.desc)}</p>` : ''}
+              ${day.people ? `<p class="day-people"><strong>Attendees:</strong> ${escape(day.people)}</p>` : ''}
+            </div>
+          </header>
+        `;
+
+        if (day.note) {
+          body += `
+            <div class="note-bar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              <span>${escape(day.note)}</span>
+            </div>
+          `;
+        }
+
+        if (day.rest) {
+          body += `
+            <div class="day-rest">
+              <div><span class="star">★</span>&nbsp;&nbsp;<span class="label">No scheduled activities</span>&nbsp;&nbsp;<span class="star">★</span></div>
+            </div>
+          `;
+        } else if (day.sessions) {
+          body += '<div class="sessions">';
+          day.sessions.forEach(([time, title, type, detail]) => {
+            const tagText = TYPE_LABELS[type || ''] || '';
+            const tagHtml = tagText ? ` <span class="s-tag">${tagText}</span>` : '';
+            body += `
+              <div class="session ${type || ''}">
+                <div class="s-time">${escape(time)}</div>
+                <div class="s-body">
+                  <p class="s-title">${escape(title)}${tagHtml}</p>
+                  ${detail ? `<p class="s-detail">${escape(detail)}</p>` : ''}
+                </div>
+              </div>
+            `;
+          });
+          body += '</div>';
+        }
+
+        slides.push({
+          label: `Day ${day.n}`,
+          sprint: day.sprint,
+          html: `<div class="slide-content">${body}</div>`
+        });
+      });
+
+      // Slide 9 — Portfolio
+      slides.push({
+        label: 'Portfolio',
+        html: `
+          <div class="slide-content">
+            <div class="portfolio-head">
+              <span class="section-label">Reference</span>
+              <h2 class="slide-title">Product <span class="accent">Portfolio</span></h2>
+              <p class="slide-sub">Four products, one platform.</p>
+            </div>
+            <div class="pf-grid">
+              <div class="pf-card">
+                <div class="pf-emoji">🏢</div>
+                <p class="pf-tag">The Company</p>
+                <h3 class="pf-name">360 Sierra</h3>
+                <p class="pf-desc">The parent platform and infrastructure layer. All products are built on top of 360 Sierra.</p>
+              </div>
+              <div class="pf-card">
+                <div class="pf-emoji">🤟</div>
+                <p class="pf-tag">Operator Management</p>
+                <h3 class="pf-name">RentalBuddy</h3>
+                <p class="pf-desc">Front-facing product for rental operators. Fleet management, invoicing, integrations, and day-to-day operations.</p>
+              </div>
+              <div class="pf-card">
+                <div class="pf-emoji">🤖</div>
+                <p class="pf-tag">AI Operations</p>
+                <h3 class="pf-name">Shakkii</h3>
+                <p class="pf-desc">The intelligence layer. AI-powered automations and decision support across RentalBuddy and Lemonade.</p>
+              </div>
+              <div class="pf-card">
+                <div class="pf-emoji">🍋</div>
+                <p class="pf-tag">Booking Platform</p>
+                <h3 class="pf-name">Lemonade</h3>
+                <p class="pf-desc">Transactional and AI-powered booking platform for renters. End-to-end booking, payments, and renter experience.</p>
+              </div>
+            </div>
+          </div>
+        `
+      });
+
+      // Slide 10 — Closing / Download
+      slides.push({
+        label: 'Thank You',
+        html: `
+          <div class="blob blob-tl"></div>
+          <div class="blob blob-br"></div>
+          <div class="slide-content closing">
+            <div class="badge">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z"/></svg>
+              <span>See you in Denver</span>
+            </div>
+            <h2 class="slide-title" style="text-align:center;">Let’s ship a <span class="accent">great week</span>.</h2>
+            <p class="slide-sub" style="text-align:center;margin-left:auto;margin-right:auto;">
+              Download the full agenda as a Word document for offline reference and sharing with the team.
+            </p>
+            <a class="cta" href="/api/agenda">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Agenda (.docx)
+            </a>
+            <p class="nav-hint">360 Sierra · Strategy Week 2026 · Confidential</p>
+          </div>
+        `
+      });
+
+      // ─── Render ────────────────────────────────────────────────
+      const stage = document.getElementById('stage');
+      const dotsEl = document.getElementById('dots');
+      const counterCurrent = document.querySelector('.counter .current');
+      const counterTotal = document.querySelector('.counter .total');
+      counterTotal.textContent = slides.length;
+
+      slides.forEach((s, i) => {
+        const sec = document.createElement('section');
+        sec.className = 'slide' + (s.sprint ? ' sprint' : '');
+        sec.id = 'slide-' + i;
+        sec.innerHTML = `<div class="slide-inner">${s.html}</div>`;
+        stage.appendChild(sec);
+
+        const dot = document.createElement('button');
+        dot.className = 'dot';
+        dot.dataset.tip = s.label;
+        dot.setAttribute('aria-label', `Go to ${s.label}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(dot);
+      });
+
+      let current = 0;
+      const slideEls = stage.querySelectorAll('.slide');
+      const dotEls = dotsEl.querySelectorAll('.dot');
+      const prevBtn = document.getElementById('prev');
+      const nextBtn = document.getElementById('next');
+
+      function update() {
+        slideEls.forEach((el, i) => el.classList.toggle('active', i === current));
+        dotEls.forEach((el, i) => el.classList.toggle('active', i === current));
+        counterCurrent.textContent = current + 1;
+        prevBtn.toggleAttribute('aria-disabled', current === 0);
+        nextBtn.toggleAttribute('aria-disabled', current === slides.length - 1);
+        if (location.hash !== `#${current + 1}`) {
+          history.replaceState(null, '', `#${current + 1}`);
+        }
+        // Reset scroll on the active slide
+        slideEls[current].scrollTop = 0;
+      }
+      function goTo(i) {
+        if (i < 0 || i >= slides.length) return;
+        current = i;
+        update();
+      }
+      const next = () => goTo(current + 1);
+      const prev = () => goTo(current - 1);
+
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+
+      window.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+        else if (e.key === 'Home') goTo(0);
+        else if (e.key === 'End') goTo(slides.length - 1);
+        else if (e.key === 'f' || e.key === 'F') {
+          if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+          else document.exitFullscreen?.();
+        }
+      });
+
+      // Touch swipe
+      let touchX = null;
+      window.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+      window.addEventListener('touchend', (e) => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 50) (dx < 0 ? next : prev)();
+        touchX = null;
+      });
+
+      // Initial slide from hash
+      const hashNum = parseInt(location.hash.replace('#', ''), 10);
+      if (!isNaN(hashNum) && hashNum >= 1 && hashNum <= slides.length) current = hashNum - 1;
+      update();
+    </script>
+  </body>
+</html>
