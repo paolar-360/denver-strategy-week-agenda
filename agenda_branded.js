@@ -355,7 +355,7 @@ const children = [
     blk("11:45 AM", "System Map \u2014 Operator Flow",      "Draw the full operator journey: onboarding \u2192 fleet setup \u2192 rate and category config \u2192 bookings \u2192 vehicle handover \u2192 returns \u2192 reporting. Every actor, handoff, and integration. Red-flag friction.", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "", "break"),
     blk("2:00 PM",  "System Map \u2014 Customer Flow",      "Customer side of the map: search \u2192 quote \u2192 booking \u2192 communications \u2192 pickup \u2192 rental experience \u2192 return \u2192 post-trip. Where does it break today? Where does AI create leverage?", "sprint-hi"),
-    blk("3:00 PM",  "AI Module Strategy",             "Where do Shakkii\u2019s AI modules create the most leverage on the map? Parallel vs sequential deployment, speed-to-market trade-offs, which operations to automate first, build vs. integrate decisions.", "sprint-hi"),
+    blk("3:00 PM",  "AI Across the Flow",             "Revisit both system maps and mark every touchpoint where AI meaningfully changes the experience or the unit economics. Which operations to automate first (highest impact, lowest complexity). How MCP servers and agents orchestrate the stack end-to-end. Build vs. integrate decisions. Where AI compounds: customer-facing, operations, and fleet intelligence.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
     blk("3:45 PM",  "Day 3 Recap",                    "Capture decisions from the day and confirm tomorrow\u2019s agenda.", "sprint-hi"),
     blk("4:00 PM",  "End of Day",                     "", "sprint-hi"),
