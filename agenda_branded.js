@@ -339,46 +339,54 @@ const children = [
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 3 — Friday April 24 — SPRINT: MAP
+  // DAY 3 — Friday April 24 — LONG-TERM GOAL & SYSTEM MAP
   // ══════════════════════════════════════════════
-  dayHdr(3, "Friday, April 24", "Map \u2014 Problem Definition & Sprint Target", "sprint"),
+  dayHdr(3, "Friday, April 24", "Long-Term Goal & Full System Map", "sprint"),
   ...metaLines(
-    "Map the full system. Surface real bottlenecks. Lock the Sprint Target.",
+    "Set the three-year vision together. Draw the full product and operations flow \u2014 operator side and customer side. Surface the highest-friction moments and lock the priority themes for the week.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  1 Evolve ops team member (in person)"
   ),
-  noteBar("Sam participates in the full Map day before departing Saturday morning."),
+  noteBar("Working format: one board, one note-taker. Everyone contributes. We stay in one conversation until we reach decisions."),
   tbl([
-    blk("10:00 AM", "Sprint Kickoff",                 "Ground rules: no laptops during exercises, one Decider, time-boxes are firm. Goal: a completed System Map and locked Sprint Target.", "sprint-hi"),
-    blk("10:20 AM", "Long-Term Goal",                 "As a group: \u201CWhy are we doing this? Where does 360 Sierra need to be in 3 years?\u201D Written on the board. Anchors every Sprint decision.", "sprint-hi"),
-    blk("10:50 AM", "Sprint Questions",               "What are we most afraid of? Each risk becomes a testable question: \u201CCan we achieve X by end of this Sprint?\u201D These guide the Map.", "sprint-hi"),
+    blk("10:00 AM", "Kickoff & Ground Rules",         "Open the week as a team: how we will work, how decisions get made, how we capture notes. No solo work today \u2014 everything happens on the board.", "sprint-hi"),
+    blk("10:20 AM", "Long-Term Goal",                 "As a group: where does 360 Sierra need to be in three years? The product, the operator base, the brand. Written on the board. Anchors every decision that follows.", "sprint-hi"),
+    blk("11:00 AM", "What Are We Afraid Of?",         "Turn risks into testable questions: \u201CCan we achieve X by end of the rollout?\u201D These become the questions we answer across the week.", "sprint-hi"),
     blk("11:30 AM", "Break",                          "", "break"),
-    blk("11:45 AM", "System Map",                     "Draw the full workflow: vehicle onboarding \u2192 transaction \u2192 fleet dashboard \u2192 operator. Mark every actor, handoff, and integration point. Flag friction in red.", "sprint-hi"),
+    blk("11:45 AM", "System Map \u2014 Operator Flow",      "Draw the full operator journey: onboarding \u2192 fleet setup \u2192 rate and category config \u2192 bookings \u2192 vehicle handover \u2192 returns \u2192 reporting. Every actor, handoff, and integration. Red-flag friction.", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "", "break"),
-    blk("2:00 PM",  "Expert Interviews",              "Structured 10\u201315 min conversations with each person in the room, including the Evolve ops team member. Facilitator takes How Might We (HMW) notes. Real operational insight surfaces here.", "sprint-hi"),
-    blk("3:00 PM",  "HMW Sort & Dot Vote",            "Post all HMW notes on the map. Vote with dots. Top clusters reveal the highest-value problems.", "sprint-hi"),
+    blk("2:00 PM",  "System Map \u2014 Customer Flow",      "Customer side of the map: search \u2192 quote \u2192 booking \u2192 communications \u2192 pickup \u2192 rental experience \u2192 return \u2192 post-trip. Where does it break today? Where does AI create leverage?", "sprint-hi"),
+    blk("3:00 PM",  "How Might We \u2014 Sort & Dot Vote",  "Cluster all HMW notes from both maps. Everyone votes with dots. Top clusters reveal where the platform must be differentiated.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Sprint Target \u2014 Decision",         "Decider picks one moment on the map and one Sprint Question to answer. Locked focus for Days 6 and 7. No pivoting after this.", "sprint-hi"),
-    blk("4:15 PM",  "AI Module Strategy",             "Where do Shakkii\u2019s AI modules create the most leverage? Parallel vs. sequential deployment, speed-to-market trade-offs, which operations to automate first, build vs. integrate decisions. Capstone block of the Map day.", "sprint-hi"),
+    blk("3:45 PM",  "Priority Themes \u2014 Decision",       "Lock 3\u20134 priority themes that anchor Saturday, Monday, and Tuesday deep-dives. No pivoting after this.", "sprint-hi"),
+    blk("4:15 PM",  "AI Module Strategy",             "Where do Shakkii\u2019s AI modules create the most leverage on the map? Parallel vs sequential deployment, speed-to-market trade-offs, which operations to automate first, build vs. integrate decisions.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 4 — Saturday April 25 — BACKUP
+  // DAY 4 — Saturday April 25 — COMMUNICATIONS PILLAR
   // ══════════════════════════════════════════════
-  dayHdr(4, "Saturday, April 25", "Backup / Overflow \u2014 Morning Only"),
+  dayHdr(4, "Saturday, April 25", "Communications Pillar \u2014 The USP", "sprint"),
   ...metaLines(
-    "Optional buffer morning. Sam departs today.",
+    "Deep-dive on the communications layer of the platform: every inbound, outbound, internal, and third-party channel. If we nail this, it becomes the unfair advantage.",
     "Andres, Paola, Matt, Heath, Sam (morning only)"
   ),
+  noteBar("Hypothesis on the table: communications done right is the main USP. We work through every channel and define what the platform owns, what it routes, and what it automates."),
   tbl([
-    blk("10:00 AM", "Morning Check-in",               "Assess where the week stands. Decide together how to use the morning."),
-    blk("10:15 AM", "Option A \u2014 Overflow",               "Resolve any open items from Days 1\u20133: investment terms, GTM, design partner scope, or unfinished Map work."),
-    blk("10:15 AM", "Option B \u2014 Deep-Dive",              "Go deeper on one topic: AI architecture, product naming, pricing, or competitive landscape."),
-    blk("10:15 AM", "Option C \u2014 Informal",               "Rest or unstructured time. Relationship-building matters."),
-    blk("12:00 PM", "Sam Farewell",                   "Sam departs. Informal close to the morning.", "hi"),
-    blk("12:30 PM", "End of Morning",                 "No afternoon session."),
-  ]),
+    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s priority themes. Anchor the day around the Communications pillar.", "sprint-hi"),
+    blk("10:15 AM", "Inbound Communications",         "Manual partner emails for new bookings, booking modifications, infringements, group requests. How the platform captures, classifies, and routes every inbound message without losing any.", "sprint-hi"),
+    blk("11:00 AM", "Outbound Communications",        "Transactional, marketing, and service-recovery comms to customers and third parties. Tone, timing, channel selection, fallback rules.", "sprint-hi"),
+    blk("11:30 AM", "Break",                          "", "break"),
+    blk("11:45 AM", "CRM & Customer Journey",         "Campaign management plus inbound customer comms across email, call, SMS, WhatsApp. One inbox, one history per customer, visible to every relevant role.", "sprint-hi"),
+    blk("12:20 PM", "Internal Staff Comms",           "Replace WhatsApp chaos: one platform for follow-ups, items being tracked, shift handoffs, and operational alerts. Staff know where everything lives.", "sprint-hi"),
+    blk("1:00 PM",  "Lunch",                          "Sam farewell \u2014 Sam departs after lunch.", "break"),
+    blk("2:00 PM",  "Third-Party Repairer & Service Network", "Work tickets, scheduling, and limited-access portals for repairers and service partners. They see what they need, nothing more. Vehicle, repair history, comms \u2014 all in one ticket.", "sprint-hi"),
+    blk("3:00 PM",  "Error Detection & Proactive Resolution", "How the platform catches errors across the customer journey and internal flows. When something breaks (like a failed digital check-in), the system flags it, classifies the root cause, and reaches out to the customer or staff with a recommended fix before it escalates.", "sprint-hi"),
+    blk("3:30 PM",  "Break",                          "", "break"),
+    blk("3:45 PM",  "Missed-Opportunity Reporting",   "When a search returns no availability, we log it. Reporting on missed demand drives future purchasing, fleet rebalancing, and pricing decisions.", "sprint-hi"),
+    blk("4:30 PM",  "Day 4 Recap",                    "Capture the Communications stack definition. Confirm which modules are MVP vs later waves.", "sprint-hi"),
+    blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
+  ], true),
   sp(),
 
   // ══════════════════════════════════════════════
@@ -390,67 +398,71 @@ const children = [
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 6 — Monday April 27 — SPRINT: SKETCH
+  // DAY 6 — Monday April 27 — FOUNDATIONS: SECURITY, ACCESS & RATES
   // ══════════════════════════════════════════════
-  dayHdr(6, "Monday, April 27", "Sketch \u2014 Ideation & AI Strategy", "sprint"),
+  dayHdr(6, "Monday, April 27", "Foundations \u2014 Security, Access & Rates", "sprint"),
   ...metaLines(
-    "Generate solutions independently. Compare through structure, not debate. Define the AI module strategy.",
+    "Work through the non-negotiable base layer of the platform: user access, security, tenant setup, and the full rates engine.",
     "Andres, Paola, Matt, Heath"
   ),
+  noteBar("Sarah\u2019s high-level requirements are on the table. We translate them into product decisions and flag what is MVP, v1.1, or post-Seed."),
   tbl([
-    blk("10:00 AM", "Recap & Sprint Target Review",  "Reconnect with the Map and Sprint Target from Friday. Restate the Long-Term Goal.", "sprint-hi"),
-    blk("10:20 AM", "Lightning Demos",                "3 minutes each: one inspiring example relevant to the Sprint Target \u2014 a product, workflow, or idea. Facilitator captures \u201Cbig ideas.\u201D", "sprint-hi"),
-    blk("11:00 AM", "Crazy 8s",                       "Individual exercise: fold paper into 8 panels. Sketch 8 different solution ideas in 8 minutes. Forces quantity over quality. Solo work only.", "sprint-hi"),
+    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s themes. Frame the two foundational blocks of the day: access/security and the rates engine.", "sprint-hi"),
+    blk("10:15 AM", "User Access & Security",          "MFA required across the board, no shared users. Role- and location-based access levels. Logging and auditing of every sensitive action. What does the permission matrix look like?", "sprint-hi"),
+    blk("11:00 AM", "Payments & Compliance",          "PCI compliance scope. Payment gateway integrations. Who can issue refunds, modify payments, and under what controls. Sensitive data retention and GDPR right-to-erasure flows.", "sprint-hi"),
     blk("11:30 AM", "Break",                          "", "break"),
-    blk("11:45 AM", "Solution Sketch",                "Each person develops a detailed 3-panel sketch for the Sprint Target. Anonymous \u2014 no names on sketches. Reviewed and voted on tomorrow.", "sprint-hi"),
+    blk("11:45 AM", "System Setup & Tenancy",         "Single-country vs multi-country. Tax rules: inclusive/exclusive, state and country level, tax-exempt bookings. Franchise and multi-tenant branding. What gets shared, what gets isolated.", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "", "break"),
-    blk("2:00 PM",  "Silent Sketch Finalization",     "Open, quiet work time. Each person polishes their 3-panel sketch before the Gallery Walk. No discussion, no laptops sharing \u2014 Sprint-style deep work.", "sprint-hi"),
-    blk("3:00 PM",  "Gallery Walk",                   "Post all sketches on the wall. Everyone reviews silently, leaving dot stickers on interesting ideas. No commentary yet.", "sprint-hi"),
+    blk("2:00 PM",  "Rates Engine \u2014 Structure",         "Rental period calculation: 24-hour, calendar day, hourly, part-day. Rate types: Retail, Corporate, Agent, Long-term / subscription. How they relate.", "sprint-hi"),
+    blk("3:00 PM",  "Rates Engine \u2014 Logic & Overrides", "Seasons, locations, categories. Maintained in-system vs via 3rd-party rate aggregator. When rates re-calculate on bookings. Quote validity and change rules.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Heat Map & Sketch Pitches",      "Review where dots cluster. Each person has 1 minute to describe their sketch \u2014 no defending, just context. Sets up tomorrow\u2019s decision.", "sprint-hi"),
-    blk("4:30 PM",  "Day 6 Recap",                    "Document all sketches. Preview the Decide day.", "sprint-hi"),
+    blk("3:45 PM",  "Do-Not-Rent & Fraud Controls",   "Blacklists, risk checks, manual overrides. How fraud signals surface during booking and at check-in.", "sprint-hi"),
+    blk("4:30 PM",  "Day 6 Recap",                    "Capture the foundations decisions. Flag what is MVP vs later waves.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 7 — Tuesday April 28 — SPRINT: DECIDE
+  // DAY 7 — Tuesday April 28 — OPERATOR REALITY & FLEET OPERATIONS
   // ══════════════════════════════════════════════
-  dayHdr(7, "Tuesday, April 28", "Decide \u2014 Roadmap Lock-In", "sprint"),
+  dayHdr(7, "Tuesday, April 28", "Operator Reality & Fleet Operations", "sprint"),
   ...metaLines(
-    "Open conversation with Native in the morning. Vote, decide, and lock the full product roadmap in the afternoon.",
+    "Morning: open conversation with Native Camper Vans on what running a fleet actually feels like. Afternoon: full booking lifecycle, utilization, vehicle management, and outside access.",
     "Andres, Paola, Matt, Heath  \u00B7  1 Evolve ops member (online)  \u00B7  Native Camper Vans (online, morning only)"
   ),
-  noteBar("The Native session is an open conversation \u2014 casual and honest. We want to hear how operating a fleet actually feels, what\u2019s frustrating, and what they wish existed."),
+  noteBar("The Native session is open and honest. We want reality, not polish: what is slow, what is painful, what they wish existed."),
   tbl([
     blk("10:00 AM", "Conversation \u2014 Native + Evolve ops", "Open chat with Native Camper Vans and the Evolve ops member (online). How does running a fleet feel today? What is slow, painful, or missing? Facilitator takes notes. (~75 min)", "sprint-hi"),
-    blk("11:30 AM", "Break",                           "", "break"),
-    blk("11:45 AM", "Synthesis & Speed Critique",     "Synthesize the conversation insights. Add to the board. Then 5 min per sketch: facilitator narrates, author stays silent, group asks clarifying questions only.", "sprint-hi"),
+    blk("11:30 AM", "Break",                          "", "break"),
+    blk("11:45 AM", "Synthesis \u2014 Operator Insights",    "Capture insights on the board and add to the priority themes. Identify the top operational pain points we must solve first.", "sprint-hi"),
+    blk("12:20 PM", "Booking Lifecycle \u2014 Quote to Return", "Booking managed from quote through post-return. Re-calculation rules, change logs, extras (optional, mandatory, CDW, fixed/daily/percent fees). Signed rental agreement flow and what happens if a booking changes after signing.", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "Online guests disconnect before lunch.", "break"),
-    blk("2:00 PM",  "Decision \u2014 Straw Poll",             "Everyone votes for the sketch they want to build. Votes converge \u2014 done. Split \u2014 Decider calls it. One direction, locked.", "sprint-hi"),
-    blk("2:30 PM",  "Roadmap \u2014 RentalBuddy / Transactional Core", "Development sequence: onboarding, invoicing, real-time fleet data, integrations. Priorities, milestones, dependencies.", "sprint-hi"),
+    blk("2:00 PM",  "Booking Types & Utilization",     "Revenue / Maintenance / Non-Revenue. Automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking, reserved vehicles for unexpected events.", "sprint-hi"),
+    blk("3:00 PM",  "Vehicle Management",             "PM and manual servicing, damages, rego, RUC, GPS, activity logs. Cost tracking for ROI reporting. Category changes on vehicles that do not break historical reports. Vehicle swaps mid-rental for fines/tolls.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Roadmap \u2014 Shakkii / AI Layer",      "Which AI modules ship in MVP, which in v1.1, which are post-Seed. Build vs. integrate decisions. How Shakkii connects to RentalBuddy and Lemonade.", "sprint-hi"),
-    blk("4:15 PM",  "Full Week Review & Lock",        "Walk through every decision made across the whole week. Confirm nothing is open. Final alignment check before departure day.", "sprint-hi"),
-    blk("4:45 PM",  "Closing Remarks",                 "Acknowledge the work done. Next steps and communication cadence.", "sprint-hi"),
+    blk("3:45 PM",  "Outside Access",                 "Website booking flow, agent portal access, check-in process, hiring and returning process, webhooks. Customer-facing documents and branded comms.", "sprint-hi"),
+    blk("4:30 PM",  "Commissions & Financials",       "Staff, referral, and agent commissions tracked through the booking. Agent payments between the RCC and agent \u2014 how we reconcile.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 8 — Wednesday April 29
+  // DAY 8 — Wednesday April 29 — DECIDE, LOCK ROADMAP & WRAP-UP
   // ══════════════════════════════════════════════
-  dayHdr(8, "Wednesday, April 29", "Wrap-Up & Departures"),
+  dayHdr(8, "Wednesday, April 29", "Decide, Lock Roadmap & Wrap-Up", "sprint"),
   ...metaLines(
-    "Final roadmap confirmation, action items, investment next steps, and travel.",
+    "Consolidate the week. Lock the product roadmap across RentalBuddy, Shakkii, and the Communications pillar. Confirm owners, next steps, and travel.",
     "Andres, Paola, Matt, Heath"
   ),
   tbl([
-    blk("10:00 AM", "Final Roadmap Review",           "One last pass through the locked roadmap. All priorities, timelines, and open items confirmed."),
-    blk("10:45 AM", "Action Items \u2014 All Parties",        "Every action item listed with owner and deadline: 360 Sierra, Evolve, Wildwood. Reporting cadence confirmed.", "hi"),
+    blk("10:00 AM", "Recap & Priority Vote",          "Restate priority themes from Friday through Tuesday. Straw poll across everything: what is in MVP, what is v1.1, what is post-Seed.", "sprint-hi"),
+    blk("10:30 AM", "Roadmap \u2014 RentalBuddy / Transactional Core", "Onboarding, booking engine, rates, payments, real-time fleet data, integrations. Sequence and dependencies.", "sprint-hi"),
     blk("11:30 AM", "Break",                          "", "break"),
-    blk("11:45 AM", "Investment \u2014 Next Steps",          "Transfer timeline, SAFE execution steps, reporting structure."),
-    blk("12:15 PM", "Closing Lunch / Farewell",       "Informal lunch. Safe travels.", "hi"),
+    blk("11:45 AM", "Roadmap \u2014 Communications Layer",  "Matt\u2019s pillar: inbound, outbound, CRM, internal, third-party repairer, error detection, missed-opportunity reporting. Which modules ship in MVP and in what order.", "sprint-hi"),
+    blk("12:15 PM", "Roadmap \u2014 Shakkii / AI Layer",     "Which AI modules ship in MVP, which in v1.1, which post-Seed. Build vs integrate. How Shakkii connects to RentalBuddy and Lemonade.", "sprint-hi"),
+    blk("12:45 PM", "Closing Lunch / Farewell",       "Informal lunch. Safe travels.", "hi"),
+    blk("2:00 PM",  "Action Items \u2014 All Parties",       "Every action item with owner and deadline: 360 Sierra, Evolve, Wildwood. Reporting cadence confirmed.", "sprint-hi"),
+    blk("2:30 PM",  "Investment \u2014 Next Steps",          "Transfer timeline, SAFE execution steps, reporting structure."),
     blk("Afternoon", "Departures",                    "Travel as scheduled."),
   ]),
 
