@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "Strategy Week Agenda generator + Vercel landing",
-  "main": "agenda_branded.js",
   "scripts": {
     "generate": "node agenda_branded.js",
     "serve": "node server.js",

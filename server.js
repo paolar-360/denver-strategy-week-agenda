@@ -5,8 +5,9 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const PUBLIC_DIR = __dirname;
 const API_DIR = path.join(__dirname, 'api');
+const STATIC_ALLOW = new Set(['.html', '.css', '.js', '.json', '.svg', '.png', '.jpg', '.jpeg', '.ico', '.webp', '.woff', '.woff2']);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -63,8 +64,15 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // Static
   if (pathname === '/') pathname = '/index.html';
+
+  // Only allow known static asset types so we don't expose server.js, package.json, etc.
+  const ext = path.extname(pathname).toLowerCase();
+  if (!STATIC_ALLOW.has(ext)) {
+    sendStatic(res, path.join(PUBLIC_DIR, 'index.html'));
+    return;
+  }
+
   const filePath = path.join(PUBLIC_DIR, pathname);
   if (!filePath.startsWith(PUBLIC_DIR)) {
     res.writeHead(403); res.end('Forbidden'); return;
