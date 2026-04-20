@@ -339,45 +339,47 @@ const children = [
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 3 — Friday April 24 — LONG-TERM GOAL & SYSTEM MAP
+  // DAY 3 — Friday April 24 — LONG-TERM GOAL, SYSTEM MAP & BOOKING CORE
   // ══════════════════════════════════════════════
-  dayHdr(3, "Friday, April 24", "Long-Term Goal & Full System Map", "sprint"),
+  dayHdr(3, "Friday, April 24", "Long-Term Goal, System Map & Booking Core", "sprint"),
   ...metaLines(
-    "Set the three-year vision together. Draw the full product and operations flow \u2014 operator side and customer side. Surface the highest-friction moments and lock the priority themes for the week.",
+    "Set the three-year vision. Draw the full operator and customer flows. Move into the transactional core: booking lifecycle, utilization, vehicle management, outside access, and commissions.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  1 Evolve ops team member (in person)"
   ),
   noteBar("Working format: one board, one note-taker. Everyone contributes. We stay in one conversation until we reach decisions."),
   tbl([
     blk("10:00 AM", "Kickoff & Ground Rules",         "Open the week as a team: how we will work, how decisions get made, how we capture notes. No solo work today \u2014 everything happens on the board.", "sprint-hi"),
-    blk("10:20 AM", "Long-Term Goal",                 "As a group: where does 360 Sierra need to be in three years? The product, the operator base, the brand. Written on the board. Anchors every decision that follows.", "sprint-hi"),
+    blk("10:15 AM", "Long-Term Goal",                 "As a group: where does 360 Sierra need to be in three years? The product, the operator base, the brand. Written on the board. Anchors every decision that follows.", "sprint-hi"),
     blk("11:00 AM", "What Are We Afraid Of?",         "Turn risks into testable questions: \u201CCan we achieve X by end of the rollout?\u201D These become the questions we answer across the week.", "sprint-hi"),
     blk("11:30 AM", "Break",                          "", "break"),
     blk("11:45 AM", "System Map \u2014 Operator Flow",      "Draw the full operator journey: onboarding \u2192 fleet setup \u2192 rate and category config \u2192 bookings \u2192 vehicle handover \u2192 returns \u2192 reporting. Every actor, handoff, and integration. Red-flag friction.", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "", "break"),
-    blk("2:00 PM",  "System Map \u2014 Customer Flow",      "Customer side of the map: search \u2192 quote \u2192 booking \u2192 communications \u2192 pickup \u2192 rental experience \u2192 return \u2192 post-trip. Where does it break today? Where does AI create leverage?", "sprint-hi"),
-    blk("3:00 PM",  "AI Across the Flow",             "Revisit both system maps and mark every touchpoint where AI meaningfully changes the experience or the unit economics. Which operations to automate first (highest impact, lowest complexity). How MCP servers and agents orchestrate the stack end-to-end. Build vs. integrate decisions. Where AI compounds: customer-facing, operations, and fleet intelligence.", "sprint-hi"),
-    blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Roadmap \u2014 AI Layer",                "Lock the AI roadmap. Which modules ship in MVP, which in v1.1, which post-Seed. Build vs. integrate per module. MCP servers, agent orchestration, data contracts. How AI connects to RentalBuddy, Communications, and Lemonade over time.", "sprint-hi"),
-    blk("4:30 PM",  "Day 3 Recap",                    "Capture decisions from the day and confirm tomorrow\u2019s agenda.", "sprint-hi"),
+    blk("2:00 PM",  "System Map \u2014 Customer Flow",      "Customer side of the map: search \u2192 quote \u2192 booking \u2192 communications \u2192 pickup \u2192 rental experience \u2192 return \u2192 post-trip. Where does it break today? What matters most?", "sprint-hi"),
+    blk("2:45 PM",  "Booking Lifecycle \u2014 Quote to Return", "Booking managed from quote through post-return. Re-calculation rules, change logs, extras (optional, mandatory, CDW, fixed/daily/percent fees). Signed rental agreement flow and what happens if a booking changes after signing.", "sprint-hi"),
+    blk("3:15 PM",  "Booking Types, Utilization & Vehicle Management", "Revenue / Maintenance / Non-Revenue bookings. Automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking. Vehicle side: PM and manual servicing, damages, rego, RUC, GPS, activity logs. Category changes on vehicles that do not break historical reports. Mid-rental vehicle swaps for fines/tolls.", "sprint-hi"),
+    blk("4:00 PM",  "Break",                          "", "break"),
+    blk("4:15 PM",  "Outside Access & Commissions",   "Website booking flow, agent portal, check-in and hiring/returning process, webhooks. Staff, referral, and agent commissions tracked through the booking. How we reconcile agent payments between the RCC and agent.", "sprint-hi"),
+    blk("4:45 PM",  "Day 3 Recap",                    "Capture decisions from the day and confirm what we pick up on Saturday.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 4 — Saturday April 25 — COMMUNICATIONS PILLAR (half-day)
+  // DAY 4 — Saturday April 25 — FOUNDATIONS & RENTALBUDDY ROADMAP (half-day)
   // ══════════════════════════════════════════════
-  dayHdr(4, "Saturday, April 25", "Communications Pillar \u2014 The USP", "sprint"),
+  dayHdr(4, "Saturday, April 25", "Foundations & RentalBuddy Roadmap", "sprint"),
   ...metaLines(
-    "Half-day deep-dive on the communications layer of the platform. Every channel consolidated into three working blocks. If we nail this, it becomes the unfair advantage.",
+    "Close out the transactional layer: access, security, payments, compliance, tenancy, rates, and fraud. Lock the RentalBuddy roadmap before Sam departs.",
     "Andres, Paola, Matt, Heath, Sam (morning only)"
   ),
   tbl([
-    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s themes. Frame the three working blocks of the day: customer comms, internal + partner comms, and proactive monitoring.", "sprint-hi"),
-    blk("10:15 AM", "Customer Communications \u2014 Inbound, Outbound & CRM", "Inbound: partner emails for new bookings, modifications, infringements, group requests \u2014 captured, classified, and routed so nothing is lost. Outbound: transactional, marketing, and service-recovery comms \u2014 tone, timing, channel selection, fallback rules. CRM & journey: inbound customer comms across email/call/SMS/WhatsApp plus campaigns. One inbox, one history per customer, visible to every relevant role.", "sprint-hi"),
+    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s booking-core decisions. Frame Saturday: foundations (access, payments, tenancy, rates, fraud) and the RentalBuddy roadmap.", "sprint-hi"),
+    blk("10:10 AM", "User Access, Security & Payments", "MFA required across the board, no shared users. Role- and location-based access levels. Logging and auditing of sensitive actions. PCI scope, payment gateway integrations. Who can issue refunds and modify payments, and under what controls.", "sprint-hi"),
+    blk("10:50 AM", "System Setup, Tenancy & Compliance", "Single- vs multi-country. Tax rules: inclusive/exclusive, state and country level, tax-exempt bookings. Sensitive data retention and GDPR right-to-erasure flows. Franchise and multi-tenant branding \u2014 what is shared, what is isolated.", "sprint-hi"),
     blk("11:15 AM", "Break",                          "", "break"),
-    blk("11:30 AM", "Internal Staff & Third-Party Network Comms", "Internal: replace WhatsApp chaos with one platform for follow-ups, items being tracked, shift handoffs, and operational alerts. Third-party repairers and service partners: work tickets, scheduling, and limited-access portals \u2014 they see what they need, nothing more. All vehicle, repair, and partner comms in one place.", "sprint-hi"),
-    blk("12:15 PM", "Proactive Monitoring \u2014 Errors & Missed Opportunities", "Error detection across the customer journey and internal flows: when something breaks (like a failed digital check-in), the system flags it, classifies the root cause, and reaches out to the customer or staff with a recommended fix before it escalates. Missed-opportunity reporting: when a search returns no availability, we log it \u2014 reporting on missed demand drives future purchasing, fleet rebalancing, and pricing.", "sprint-hi"),
-    blk("1:00 PM",  "Close & Sam Farewell",           "Quick wrap-up of Saturday\u2019s Communications decisions. Sam departs.", "hi"),
+    blk("11:30 AM", "Rates Engine & Fraud Controls",   "Rental period calculation: 24-hour, calendar day, hourly, part-day. Rate types: Retail, Corporate, Agent, Long-term/subscription. Seasons, locations, categories. In-system vs 3rd-party rate aggregator. When rates re-calculate. Do-Not-Rent list, blacklists, risk checks, manual overrides.", "sprint-hi"),
+    blk("12:15 PM", "Roadmap \u2014 RentalBuddy / Booking Core", "Lock the RentalBuddy roadmap. Sequence the transactional core: onboarding, booking engine, rates, payments, real-time fleet data, integrations, agent portal, check-in/return flow. MVP, v1.1, post-Seed. Dependencies and ownership.", "sprint-hi"),
+    blk("1:00 PM",  "Close & Sam Farewell",           "Quick wrap-up of Saturday\u2019s foundations and the RentalBuddy roadmap. Sam departs.", "hi"),
   ], true),
   sp(),
 
@@ -390,48 +392,49 @@ const children = [
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 6 — Monday April 27 — FOUNDATIONS: SECURITY, ACCESS & RATES
+  // DAY 6 — Monday April 27 — AI LAYER (FULL DAY)
   // ══════════════════════════════════════════════
-  dayHdr(6, "Monday, April 27", "Foundations \u2014 Security, Access & Rates", "sprint"),
+  dayHdr(6, "Monday, April 27", "AI Layer \u2014 Modules, Orchestration & Roadmap", "sprint"),
   ...metaLines(
-    "Work through the non-negotiable base layer of the platform: user access, security, tenant setup, and the full rates engine.",
+    "Full day on the AI layer. Revisit both system maps, decide where AI creates real leverage, work through MCP servers and agent orchestration, build vs. integrate, and lock the AI roadmap.",
     "Andres, Paola, Matt, Heath"
   ),
   tbl([
-    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s themes. Frame the two foundational blocks of the day: access/security and the rates engine.", "sprint-hi"),
-    blk("10:15 AM", "User Access & Security",          "MFA required across the board, no shared users. Role- and location-based access levels. Logging and auditing of every sensitive action. What does the permission matrix look like?", "sprint-hi"),
-    blk("11:00 AM", "Payments & Compliance",          "PCI compliance scope. Payment gateway integrations. Who can issue refunds, modify payments, and under what controls. Sensitive data retention and GDPR right-to-erasure flows.", "sprint-hi"),
-    blk("11:30 AM", "Break",                          "", "break"),
-    blk("11:45 AM", "System Setup & Tenancy",         "Single-country vs multi-country. Tax rules: inclusive/exclusive, state and country level, tax-exempt bookings. Franchise and multi-tenant branding. What gets shared, what gets isolated.", "sprint-hi"),
+    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Fri/Sat. Frame the AI day: where AI lives across the flow, how it is orchestrated, what we build vs. integrate, and the roadmap.", "sprint-hi"),
+    blk("10:15 AM", "AI Across the Flow \u2014 Revisit the Maps", "Walk both system maps again and mark every touchpoint where AI meaningfully changes the experience or the unit economics. Customer-facing moments, operator flows, and fleet intelligence. What is truly high-leverage vs. nice-to-have.", "sprint-hi"),
+    blk("11:15 AM", "Break",                          "", "break"),
+    blk("11:30 AM", "AI \u2014 Customer-Facing Modules",     "Search, quote, booking assistance, journey rescue, support, upsell. How AI shows up to the customer without feeling artificial. Tone, fallbacks, human handoff, privacy boundaries.", "sprint-hi"),
+    blk("12:30 PM", "AI \u2014 Operations & Fleet Intelligence", "Dispatch, pricing, utilization, predictive maintenance, anomaly detection, demand forecasting. Which ops to automate first (highest impact, lowest complexity).", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "", "break"),
-    blk("2:00 PM",  "Rates Engine \u2014 Structure",         "Rental period calculation: 24-hour, calendar day, hourly, part-day. Rate types: Retail, Corporate, Agent, Long-term / subscription. How they relate.", "sprint-hi"),
-    blk("3:00 PM",  "Rates Engine \u2014 Logic & Overrides", "Seasons, locations, categories. Maintained in-system vs via 3rd-party rate aggregator. When rates re-calculate on bookings. Quote validity and change rules.", "sprint-hi"),
+    blk("2:00 PM",  "AI \u2014 Operations & Fleet Intelligence (cont.)", "Deep-dive continued: operational agents, reporting, rebalancing logic, the data AI needs to work.", "sprint-hi"),
+    blk("2:30 PM",  "MCP Servers, Agents & Orchestration", "How MCP servers and agents orchestrate the stack end-to-end. Data contracts, tool-use boundaries, memory and state, how agents read/write across RentalBuddy, Communications, and Lemonade.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Do-Not-Rent & Fraud Controls",   "Blacklists, risk checks, manual overrides. How fraud signals surface during booking and at check-in.", "sprint-hi"),
-    blk("4:15 PM",  "Roadmap \u2014 RentalBuddy / Booking Core", "Lock the RentalBuddy roadmap. Sequence the transactional core: onboarding, booking engine, rates, payments, real-time fleet data, integrations. MVP, v1.1, post-Seed. Dependencies on the foundations discussed today.", "sprint-hi"),
+    blk("3:45 PM",  "Build vs. Integrate \u2014 Per Module", "For each AI module: do we build, wrap an existing provider, or integrate and own the orchestration? Speed-to-market vs. defensibility. Cost ceilings.", "sprint-hi"),
+    blk("4:15 PM",  "Roadmap \u2014 AI Layer",                "Lock the AI roadmap. Which modules ship in MVP, which in v1.1, which post-Seed. Sequence and dependencies on RentalBuddy and the Communications layer.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 7 — Tuesday April 28 — OPERATOR REALITY & FLEET OPERATIONS
+  // DAY 7 — Tuesday April 28 — OPERATOR REALITY & COMMUNICATIONS PILLAR
   // ══════════════════════════════════════════════
-  dayHdr(7, "Tuesday, April 28", "Operator Reality & Fleet Operations", "sprint"),
+  dayHdr(7, "Tuesday, April 28", "Operator Reality & Communications Pillar", "sprint"),
   ...metaLines(
-    "Morning: open conversation with Native Camper Vans on what running a fleet actually feels like. Afternoon: full booking lifecycle, utilization, vehicle management, and outside access.",
+    "Morning: open conversation with Native Camper Vans on what running a fleet actually feels like. Afternoon: the Communications pillar \u2014 customer, internal, third-party, and proactive monitoring. Close with the Communications roadmap.",
     "Andres, Paola, Matt, Heath  \u00B7  1 Evolve ops member (online)  \u00B7  Native Camper Vans (online, morning only)"
   ),
   tbl([
-    blk("10:00 AM", "Conversation \u2014 Native + Evolve ops", "Open chat with Native Camper Vans and the Evolve ops member (online). How does running a fleet feel today? What is slow, painful, or missing? Facilitator takes notes. (~75 min)", "sprint-hi"),
+    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Monday\u2019s AI decisions. Frame Tuesday: operator conversation, then the Communications pillar end-to-end.", "sprint-hi"),
+    blk("10:15 AM", "Conversation \u2014 Native + Evolve ops", "Open chat with Native Camper Vans and the Evolve ops member (online). How does running a fleet feel today? What is slow, painful, or missing? (~75 min)", "sprint-hi"),
     blk("11:30 AM", "Break",                          "", "break"),
-    blk("11:45 AM", "Synthesis \u2014 Operator Insights",    "Capture insights on the board and add to the priority themes. Identify the top operational pain points we must solve first.", "sprint-hi"),
-    blk("12:20 PM", "Booking Lifecycle \u2014 Quote to Return", "Booking managed from quote through post-return. Re-calculation rules, change logs, extras (optional, mandatory, CDW, fixed/daily/percent fees). Signed rental agreement flow and what happens if a booking changes after signing.", "sprint-hi"),
+    blk("11:45 AM", "Synthesis \u2014 Operator Insights",    "Capture insights on the board and add to the priority themes. Identify the top operational pain points and the comms gaps they surfaced.", "sprint-hi"),
+    blk("12:30 PM", "Frame the Communications Pillar", "Introduce the three working blocks of the afternoon: customer comms, internal + partner comms, and proactive monitoring. Why this is our USP.", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "", "break"),
-    blk("2:00 PM",  "Booking Types & Utilization",     "Revenue / Maintenance / Non-Revenue. Automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking, reserved vehicles for unexpected events.", "sprint-hi"),
-    blk("3:00 PM",  "Vehicle Management",             "PM and manual servicing, damages, rego, RUC, GPS, activity logs. Cost tracking for ROI reporting. Category changes on vehicles that do not break historical reports. Vehicle swaps mid-rental for fines/tolls.", "sprint-hi"),
+    blk("2:00 PM",  "Customer Communications \u2014 Inbound, Outbound & CRM", "Inbound: partner emails for new bookings, modifications, infringements, group requests \u2014 captured, classified, and routed so nothing is lost. Outbound: transactional, marketing, and service-recovery comms \u2014 tone, timing, channel selection, fallback rules. CRM & journey: inbound customer comms across email/call/SMS/WhatsApp plus campaigns. One inbox, one history per customer, visible to every relevant role.", "sprint-hi"),
+    blk("3:00 PM",  "Internal Staff & Third-Party Network Comms", "Internal: replace WhatsApp chaos with one platform for follow-ups, items being tracked, shift handoffs, and operational alerts. Third-party repairers and service partners: work tickets, scheduling, and limited-access portals \u2014 they see what they need, nothing more. All vehicle, repair, and partner comms in one place.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Outside Access & Commissions",   "Website booking flow, agent portal, check-in and hiring/returning process, webhooks. Staff, referral, and agent commissions tracked through the booking. How we reconcile agent payments between the RCC and agent.", "sprint-hi"),
-    blk("4:15 PM",  "Roadmap \u2014 Communications Layer",    "Lock the Communications roadmap. Which modules ship in MVP and in what order: inbound intake, outbound comms, CRM, internal staff, third-party repairer portals, error detection, missed-opportunity reporting. Dependencies on RentalBuddy and AI layer.", "sprint-hi"),
+    blk("3:45 PM",  "Proactive Monitoring \u2014 Errors & Missed Opportunities", "Error detection across the customer journey and internal flows: when something breaks (like a failed digital check-in), the system flags it, classifies the root cause, and reaches out to the customer or staff with a recommended fix before it escalates. Missed-opportunity reporting: when a search returns no availability, we log it \u2014 reporting on missed demand drives future purchasing, fleet rebalancing, and pricing.", "sprint-hi"),
+    blk("4:15 PM",  "Roadmap \u2014 Communications Layer",    "Lock the Communications roadmap. Which modules ship in MVP and in what order: inbound intake, outbound comms, CRM, internal staff, third-party repairer portals, error detection, missed-opportunity reporting. Dependencies on RentalBuddy and the AI layer.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
