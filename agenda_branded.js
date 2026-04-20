@@ -343,7 +343,7 @@ const children = [
   // ══════════════════════════════════════════════
   dayHdr(3, "Friday, April 24", "Long-Term Goal, System Map & Booking Core", "sprint"),
   ...metaLines(
-    "Set the three-year vision. Draw the full operator and customer flows. Move into the transactional core: booking lifecycle, utilization, vehicle management, outside access, and commissions.",
+    "Set the three-year vision. Draw the full operator and customer flows. Move into the transactional core: booking lifecycle, utilization, vehicle management, OTA and channel integrations, and commissions.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  1 Evolve ops team member (in person)"
   ),
   noteBar("Working format: one board, one note-taker. Everyone contributes. We stay in one conversation until we reach decisions."),
@@ -357,9 +357,9 @@ const children = [
     blk("2:00 PM",  "System Map \u2014 Customer Flow",      "Customer side of the map: search \u2192 quote \u2192 booking \u2192 communications \u2192 pickup \u2192 rental experience \u2192 return \u2192 post-trip. Where does it break today? What matters most?", "sprint-hi"),
     blk("2:45 PM",  "Booking Lifecycle \u2014 Quote to Return", "Booking managed from quote through post-return. Re-calculation rules, change logs, extras (optional, mandatory, CDW, fixed/daily/percent fees). Signed rental agreement flow and what happens if a booking changes after signing.", "sprint-hi"),
     blk("3:15 PM",  "Booking Types, Utilization & Vehicle Management", "Revenue / Maintenance / Non-Revenue bookings. Automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking. Vehicle side: PM and manual servicing, damages, rego, RUC, GPS, activity logs. Category changes on vehicles that do not break historical reports. Mid-rental vehicle swaps for fines/tolls.", "sprint-hi"),
-    blk("4:00 PM",  "Break",                          "", "break"),
-    blk("4:15 PM",  "Outside Access & Commissions",   "Website booking flow, agent portal, check-in and hiring/returning process, webhooks. Staff, referral, and agent commissions tracked through the booking. How we reconcile agent payments between the RCC and agent.", "sprint-hi"),
-    blk("4:45 PM",  "Day 3 Recap",                    "Capture decisions from the day and confirm what we pick up on Saturday.", "sprint-hi"),
+    blk("3:45 PM",  "Break",                          "", "break"),
+    blk("4:00 PM",  "OTA & Channel Integrations",     "OTA connectivity \u2014 Booking.com, Turo, Outdoorsy and other aggregators. This is the operator\u2019s most important booking channel, not a side integration. Inbound bookings captured in real time, rate parity and availability pushed out, channel-manager architecture, channel-level commissions, customer data ownership, and how cancellations/modifications sync back.", "sprint-hi"),
+    blk("4:30 PM",  "Outside Access & Commissions",   "Website booking flow, agent portal, check-in and hiring/returning process, webhooks. Staff, referral, and agent commissions tracked through the booking. How we reconcile agent payments between the RCC and agent.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
@@ -378,7 +378,7 @@ const children = [
     blk("10:50 AM", "System Setup, Tenancy & Compliance", "Single- vs multi-country. Tax rules: inclusive/exclusive, state and country level, tax-exempt bookings. Sensitive data retention and GDPR right-to-erasure flows. Franchise and multi-tenant branding \u2014 what is shared, what is isolated.", "sprint-hi"),
     blk("11:15 AM", "Break",                          "", "break"),
     blk("11:30 AM", "Rates Engine & Fraud Controls",   "Rental period calculation: 24-hour, calendar day, hourly, part-day. Rate types: Retail, Corporate, Agent, Long-term/subscription. Seasons, locations, categories. In-system vs 3rd-party rate aggregator. When rates re-calculate. Do-Not-Rent list, blacklists, risk checks, manual overrides.", "sprint-hi"),
-    blk("12:15 PM", "Roadmap \u2014 RentalBuddy / Booking Core", "Lock the RentalBuddy roadmap. Sequence the transactional core: onboarding, booking engine, rates, payments, real-time fleet data, integrations, agent portal, check-in/return flow. MVP, v1.1, post-Seed. Dependencies and ownership.", "sprint-hi"),
+    blk("12:15 PM", "Roadmap \u2014 RentalBuddy / Booking Core", "Lock the RentalBuddy roadmap. Sequence the transactional core: onboarding, booking engine, rates, payments, real-time fleet data, OTA and channel integrations, agent portal, check-in/return flow. MVP, v1.1, post-Seed. Dependencies and ownership.", "sprint-hi"),
     blk("1:00 PM",  "Close & Sam Farewell",           "Quick wrap-up of Saturday\u2019s foundations and the RentalBuddy roadmap. Sam departs.", "hi"),
   ], true),
   sp(),
