@@ -416,24 +416,24 @@ const children = [
   sp(),
 
   // ══════════════════════════════════════════════
-  // DAY 7 — Tuesday April 28 — OPERATOR REALITY & COMMUNICATIONS PILLAR
+  // DAY 7 — Tuesday April 28 — COMMUNICATIONS PILLAR (FULL DAY)
   // ══════════════════════════════════════════════
-  dayHdr(7, "Tuesday, April 28", "Operator Reality & Communications Pillar", "sprint"),
+  dayHdr(7, "Tuesday, April 28", "Communications Pillar", "sprint"),
   ...metaLines(
-    "Morning: open conversation with Native Camper Vans on what running a fleet actually feels like. Afternoon: the Communications pillar \u2014 customer, internal, third-party, and proactive monitoring. Close with the Communications roadmap.",
-    "Andres, Paola, Matt, Heath  \u00B7  1 Evolve ops member (online)  \u00B7  Native Camper Vans (online, morning only)"
+    "Full day on the Communications pillar \u2014 customer, internal, third-party, and proactive monitoring. Close with the Communications roadmap.",
+    "Andres, Paola, Matt, Heath"
   ),
   tbl([
-    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Monday\u2019s AI decisions. Frame Tuesday: operator conversation, then the Communications pillar end-to-end.", "sprint-hi"),
-    blk("10:15 AM", "Conversation \u2014 Native + Evolve ops", "Open chat with Native Camper Vans and the Evolve ops member (online). How does running a fleet feel today? What is slow, painful, or missing? (~75 min)", "sprint-hi"),
+    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Monday\u2019s AI decisions. Frame the day: customer comms, internal + partner comms, proactive monitoring, and the Communications roadmap. Why this is our USP.", "sprint-hi"),
+    blk("10:15 AM", "Customer Communications \u2014 Inbound Intake", "Partner emails for new bookings, modifications, infringements, group requests. Captured, classified, and routed so nothing is lost. How inbound feeds the booking system without manual re-entry.", "sprint-hi"),
+    blk("11:00 AM", "Customer Communications \u2014 Outbound", "Transactional, marketing, and service-recovery comms. Tone, timing, channel selection (email/SMS/WhatsApp), fallback rules. How outbound ties to the customer journey.", "sprint-hi"),
     blk("11:30 AM", "Break",                          "", "break"),
-    blk("11:45 AM", "Synthesis \u2014 Operator Insights",    "Capture insights on the board and add to the priority themes. Identify the top operational pain points and the comms gaps they surfaced.", "sprint-hi"),
-    blk("12:30 PM", "Frame the Communications Pillar", "Introduce the three working blocks of the afternoon: customer comms, internal + partner comms, and proactive monitoring. Why this is our USP.", "sprint-hi"),
+    blk("11:45 AM", "Customer Communications \u2014 CRM & Unified Journey", "Inbound customer comms across email/call/SMS/WhatsApp plus campaigns. One inbox, one history per customer, visible to every relevant role. How the CRM becomes the single source of truth.", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "", "break"),
-    blk("2:00 PM",  "Customer Communications \u2014 Inbound, Outbound & CRM", "Inbound: partner emails for new bookings, modifications, infringements, group requests \u2014 captured, classified, and routed so nothing is lost. Outbound: transactional, marketing, and service-recovery comms \u2014 tone, timing, channel selection, fallback rules. CRM & journey: inbound customer comms across email/call/SMS/WhatsApp plus campaigns. One inbox, one history per customer, visible to every relevant role.", "sprint-hi"),
-    blk("3:00 PM",  "Internal Staff & Third-Party Network Comms", "Internal: replace WhatsApp chaos with one platform for follow-ups, items being tracked, shift handoffs, and operational alerts. Third-party repairers and service partners: work tickets, scheduling, and limited-access portals \u2014 they see what they need, nothing more. All vehicle, repair, and partner comms in one place.", "sprint-hi"),
-    blk("3:30 PM",  "Break",                          "", "break"),
-    blk("3:45 PM",  "Proactive Monitoring \u2014 Errors & Missed Opportunities", "Error detection across the customer journey and internal flows: when something breaks (like a failed digital check-in), the system flags it, classifies the root cause, and reaches out to the customer or staff with a recommended fix before it escalates. Missed-opportunity reporting: when a search returns no availability, we log it \u2014 reporting on missed demand drives future purchasing, fleet rebalancing, and pricing.", "sprint-hi"),
+    blk("2:00 PM",  "Internal Staff Communications",  "Replace WhatsApp chaos with one platform for follow-ups, items being tracked, shift handoffs, and operational alerts. Threads tied to the booking, the vehicle, or the customer \u2014 not to a chat group.", "sprint-hi"),
+    blk("2:45 PM",  "Third-Party Network & Repairer Portals", "Third-party repairers and service partners: work tickets, scheduling, and limited-access portals \u2014 they see what they need, nothing more. All vehicle, repair, and partner comms in one place.", "sprint-hi"),
+    blk("3:15 PM",  "Break",                          "", "break"),
+    blk("3:30 PM",  "Proactive Monitoring \u2014 Errors & Missed Opportunities", "Error detection across the customer journey and internal flows: when something breaks (like a failed digital check-in), the system flags it, classifies the root cause, and reaches out to the customer or staff with a recommended fix before it escalates. Missed-opportunity reporting: when a search returns no availability, we log it \u2014 reporting on missed demand drives future purchasing, fleet rebalancing, and pricing.", "sprint-hi"),
     blk("4:15 PM",  "Roadmap \u2014 Communications Layer",    "Lock the Communications roadmap. Which modules ship in MVP and in what order: inbound intake, outbound comms, CRM, internal staff, third-party repairer portals, error detection, missed-opportunity reporting. Dependencies on RentalBuddy and the AI layer.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
