@@ -340,7 +340,7 @@ const children = [
   // ══════════════════════════════════════════════
   dayHdr(3, "Friday, April 24", "Long-Term Goal, System Map & Booking Core", "sprint"),
   ...metaLines(
-    "Set the three-year vision. Draw the full operator and customer flows. Move into the transactional core: booking lifecycle, utilization, vehicle management, and OTA integrations.",
+    "Set the three-year vision. Draw the full operator and customer flows. Move into the transactional core: booking rules, utilization, vehicle management, and OTA integrations.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  1 Evolve ops team member (in person)"
   ),
   noteBar("Working format: one board, one note-taker. Everyone contributes. We stay in one conversation until we reach decisions."),
@@ -352,7 +352,7 @@ const children = [
     blk("11:45 AM", "System Map \u2014 Operator Flow",      "Draw the full operator journey: onboarding \u2192 fleet setup \u2192 rate and category config \u2192 bookings \u2192 vehicle handover \u2192 returns \u2192 reporting. Every actor, handoff, and integration. Red-flag friction.", "sprint-hi"),
     blk("1:00 PM",  "Lunch",                          "", "break"),
     blk("2:00 PM",  "System Map \u2014 Customer Flow",      "Customer side of the map: search \u2192 quote \u2192 booking \u2192 communications \u2192 pickup \u2192 rental experience \u2192 return \u2192 post-trip. Where does it break today? What matters most?", "sprint-hi"),
-    blk("2:45 PM",  "Booking Lifecycle, Types & Utilization", "Booking managed from quote through post-return. Re-calculation rules, change logs, extras (optional, mandatory, collision damage waiver, fixed/daily/percent fees). Signed rental agreement flow and what happens if a booking changes after signing. Booking types: revenue, maintenance, non-revenue. Utilization: automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking.", "sprint-hi"),
+    blk("2:45 PM",  "Booking Rules, Types & Utilization", "Re-calculation rules, change logs, extras (optional, mandatory, collision damage waiver, fixed/daily/percent fees). Signed rental agreement and what happens if a booking changes after signing. Booking types: revenue, maintenance, non-revenue. Utilization: automatic shuffling before pickup to maximize utilization, turnaround hours, inter-location sharing, controlled overbooking.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
     blk("3:45 PM",  "Vehicle Management",             "Preventive and manual servicing, damages, vehicle registration, road-user charges, GPS, activity logs. Category changes on vehicles that do not break historical reports. Mid-rental vehicle swaps for fines and tolls.", "sprint-hi"),
     blk("4:30 PM",  "OTA & Channel Integrations",     "OTA connectivity \u2014 Booking.com, Turo, Outdoorsy and other aggregators. Inbound bookings captured in real time, rate parity and availability pushed out, channel-manager architecture, channel-level commissions, customer data ownership, and how cancellations and modifications sync back.", "sprint-hi"),
