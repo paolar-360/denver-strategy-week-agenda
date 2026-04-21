@@ -273,8 +273,9 @@ function productPortfolioSection() {
           new TableCell({ borders: cbs, width: { size: 5560, type: WidthType.DXA }, shading: { fill: C.black, type: ShadingType.CLEAR }, margins: { top: 80, bottom: 80, left: 120, right: 120 }, children: [new Paragraph({ children: [new TextRun({ text: "What it is", bold: true, size: 19, font: "Arial", color: C.white })] })] }),
         ]}),
         pRow("\uD83C\uDFE2", "360 Sierra",   "The Company",              "The parent platform and infrastructure layer. All products are built on top of 360 Sierra.", C.orangeLight),
-        pRow("\uD83E\uDD1F", "RentalBuddy",  "Operator Management",      "The front-facing product for rental operators. Fleet management, invoicing, integrations, and day-to-day operations. Powered by 360 Sierra.", C.orangeLight),
+        pRow("\uD83E\uDD1F", "RentalBuddy",  "Pick-up / Drop-off",       "The renter-facing layer for the pick-up and drop-off moments. Digital rental agreement, vehicle condition documentation, handover checklist, and return flow.", C.orangeLight),
         pRow("\uD83E\uDD16", "Shakkii",      "AI Operations System",     "The intelligence layer. AI-powered automations and decision support built into the operational workflow. Powers smart features across RentalBuddy and Lemonade.", C.orangeLight),
+        pRow("\uD83D\uDCCD", "Trackit",      "GPS & Telemetry",          "GPS tracking and vehicle telemetry. Real-time location, activity logs, and geofencing that feed fleet intelligence across the platform.", C.orangeLight),
         pRow("\uD83C\uDF4B", "Lemonade",     "Booking Platform",         "The transactional and AI-powered booking platform for renters. Handles end-to-end booking flow, payments, and renter experience. Complements the operator side.", C.orangeLight),
       ]
     }),
@@ -299,7 +300,7 @@ const children = [
   ),
   tbl([
     blk("10:00 AM", "Welcome & Week Overview",       "Opening: format, goals, 8-day agenda, and how the working sessions will run. Set expectations for how decisions will be made across the week."),
-    blk("10:15 AM", "360 Sierra \u2014 Story, Vision & Product Portfolio", "Origin story, what we are building, why now, and the path to 10,000 and 50,000 vehicles. Walk through the full product architecture: 360 Sierra (company), RentalBuddy (operator management), Shakkii (AI operations), and Lemonade (booking platform). Align on naming and how each product tells part of the overall story.", "presentation"),
+    blk("10:15 AM", "360 Sierra \u2014 Story, Vision & Product Portfolio", "Origin story, what we are building, why now, and the path to 10,000 and 50,000 vehicles. Walk through the full product architecture: 360 Sierra (company), RentalBuddy (pick-up / drop-off renter experience), Shakkii (AI operations), Trackit (GPS), and Lemonade (booking platform). Align on naming and how each product tells part of the overall story.", "presentation"),
     blk("11:30 AM", "Break",                         "", "break"),
     blk("11:45 AM", "Strategy, Positioning & Competitive Differentiation", "3\u20135 year direction and success metrics (ARR, market share). Competitive landscape and 360 Sierra\u2019s unfair advantage \u2014 what makes us hard to copy.", "hi"),
     blk("1:00 PM",  "Lunch",                         "", "break"),
