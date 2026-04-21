@@ -53,7 +53,7 @@ function coverTitle() {
     new Paragraph({ alignment: AlignmentType.CENTER,
       shading: { fill: C.black, type: ShadingType.CLEAR },
       spacing: { before: 60, after: 0 },
-      children: [new TextRun({ text: "Strategy & Sprint Week", bold: true, size: 48, font: "Arial", color: C.orange })] }),
+      children: [new TextRun({ text: "Strategy & Product Week", bold: true, size: 48, font: "Arial", color: C.orange })] }),
 
     new Paragraph({ alignment: AlignmentType.CENTER,
       shading: { fill: C.black, type: ShadingType.CLEAR },
