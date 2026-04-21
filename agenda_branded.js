@@ -344,7 +344,7 @@ const children = [
     "Andres, Paola, Matt, Heath, Sam  \u00B7  1 Evolve ops team member (in person)"
   ),
   tbl([
-    blk("10:00 AM", "Kickoff & Ground Rules",         "Open the week as a team: how we will work, how decisions get made, how we capture notes. No solo work today \u2014 everything happens on the board.", "sprint-hi"),
+    blk("10:00 AM", "Kickoff & Ground Rules",         "How we will work today: how decisions get made, how we capture notes. Everything happens on the board.", "sprint-hi"),
     blk("10:15 AM", "Long-Term Goal",                 "As a group: where does 360 Sierra need to be in three years? The product, the operator base, the brand. Written on the board. Anchors every decision that follows.", "sprint-hi"),
     blk("11:00 AM", "What Are We Afraid Of?",         "Turn risks into testable questions: \u201CCan we achieve X by end of the rollout?\u201D These become the questions we answer across the week.", "sprint-hi"),
     blk("11:30 AM", "Break",                          "", "break"),
