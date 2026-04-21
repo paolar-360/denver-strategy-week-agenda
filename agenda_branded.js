@@ -317,10 +317,10 @@ const children = [
   // ══════════════════════════════════════════════
   dayHdr(2, "Thursday, April 23", "Design Partner, GTM & Joint Alignment", "lite"),
   ...metaLines(
-    "Close the Evolve design partner role, define ICP, pricing and GTM. Afternoon: 1:1 with David, open investor Q&A, and a joint session with Wildwood. Evening: dinner at Wildwood.",
-    "Andres, Paola, Matt, Heath, Sam  \u00B7  Nick joins for GTM  \u00B7  David joins afternoon (1:1 and Q&A)  \u00B7  Wildwood joins 4:00 PM"
+    "Close the Evolve design partner role, define ICP, pricing and GTM. Afternoon: 1:1 with David, open investor Q&A, and a social gathering with Wildwood to close the day.",
+    "Andres, Paola, Matt, Heath, Sam  \u00B7  Nick joins for GTM  \u00B7  David joins afternoon (1:1 and Q&A)  \u00B7  Wildwood joins 4:00 PM (social)"
   ),
-  noteBar("Fixed: 1:1 Evolve \u00D7 David \u2014 2:00 to 3:00 PM (Andres and Paola are not in this session)  \u00B7  Wildwood joint session 4:00\u20135:30 PM  \u00B7  Evening: dinner at Wildwood"),
+  noteBar("Fixed: 1:1 Evolve \u00D7 David \u2014 2:00 to 3:00 PM (Andres and Paola are not in this session)  \u00B7  Wildwood \u00D7 Evolve \u00D7 360 Sierra social \u2014 4:00 to 5:30 PM"),
   tbl([
     blk("10:00 AM", "Recap & Open Items",              "Resolve any open loops from Day 1 before today\u2019s sessions."),
     blk("10:15 AM", "Evolve as Design Partner",        "Define the role formally: what Evolve contributes, what they receive, how product decisions get made together. Close all open loops before the Sprint.", "hi"),
@@ -330,9 +330,8 @@ const children = [
     blk("1:00 PM",  "Lunch",                           "", "break"),
     blk("2:00 PM",  "1:1 \u2014 Evolve \u00D7 David",             "Evolve team (Matt, Heath, Sam) and David. Private session. Andres and Paola are not present.", "fixed"),
     blk("3:00 PM",  "Risk, Open Q&A & De-risking",     "Open floor for remaining investor questions. Address risk factors, execution confidence, and what de-risks the bet.", "hi"),
-    blk("4:00 PM",  "Wildwood \u00D7 Evolve \u00D7 360 Sierra \u2014 Joint Session", "Three-party working session. Align on shared priorities, the interfaces between the parties, and how we work together going forward. If we close early, leftover time is for open topics.", "hi"),
+    blk("4:00 PM",  "Wildwood \u00D7 Evolve \u00D7 360 Sierra \u2014 Social", "Casual gathering to close the day, not a working session. Relaxed time for the three parties to get to know each other. Location confirmed separately.", "hi"),
     blk("5:30 PM",  "End of Day",                      ""),
-    blk("Evening",  "Dinner \u2014 Wildwood",                  "Group dinner. Time and location confirmed separately.", "hi"),
   ]),
   sp(),
 
