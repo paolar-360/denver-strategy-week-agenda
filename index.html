@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -41,6 +41,10 @@
         font-feature-settings: "ss01", "cv11";
       }
       a { color: inherit; text-decoration: none; }
+      .mono {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-feature-settings: "zero", "ss01";
+      }
 
       /* ─── Stage ──────────────────────────────────────────────── */
       .stage {
@@ -66,19 +70,8 @@
         flex-direction: column;
       }
 
-      /* ─── Background blobs ───────────────────────────────────── */
-      .blob {
-        position: absolute;
-        width: 28rem;
-        height: 28rem;
-        border-radius: 9999px;
-        background: rgba(255, 102, 0, 0.05);
-        filter: blur(72px);
-        pointer-events: none;
-        z-index: 0;
-      }
-      .blob-tl { top: -6rem; left: -8rem; }
-      .blob-br { bottom: -8rem; right: -8rem; }
+      /* ─── Background (flat, YC-style) ────────────────────────── */
+      .blob { display: none; }
       .slide-content { position: relative; z-index: 1; }
 
       /* ─── Top counter ─────────────────────────────────────────── */
@@ -88,20 +81,20 @@
         right: 1.25rem;
         z-index: 50;
         background: var(--foreground);
-        border: 1px solid var(--foreground);
-        border-radius: 0.5rem;
+        border-radius: 0.25rem;
         padding: 0.4375rem 0.75rem;
-        font-size: 0.75rem;
-        font-weight: 700;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.6875rem;
+        font-weight: 600;
         font-variant-numeric: tabular-nums;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.02em;
         color: #ffffff;
         display: flex;
         align-items: center;
-        gap: 0.375rem;
+        gap: 0.25rem;
       }
-      .counter .current { color: var(--primary); font-weight: 800; }
-      .counter .sep { opacity: 0.5; }
+      .counter .current { color: var(--primary); font-weight: 700; }
+      .counter .sep { opacity: 0.4; }
 
       /* ─── Top brand ──────────────────────────────────────────── */
       .topbrand {
@@ -126,16 +119,16 @@
         top: 50%;
         transform: translateY(-50%);
         z-index: 50;
-        width: 2.75rem;
-        height: 2.75rem;
-        border-radius: 0.625rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.25rem;
         background: var(--foreground);
         border: 1px solid var(--foreground);
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: background 0.15s ease, transform 0.15s ease, opacity 0.2s ease;
+        transition: background 0.15s ease, opacity 0.2s ease;
       }
       .arrow:hover { background: var(--primary); border-color: var(--primary); }
       .arrow:disabled, .arrow[aria-disabled="true"] {
@@ -158,27 +151,27 @@
         transform: translateX(-50%);
         z-index: 50;
         background: var(--foreground);
-        border-radius: 0.625rem;
-        padding: 0.625rem 0.875rem;
+        border-radius: 0.25rem;
+        padding: 0.5rem 0.75rem;
         display: flex;
         align-items: center;
-        gap: 0.4375rem;
+        gap: 0.375rem;
       }
       .dot {
         position: relative;
-        width: 0.4375rem;
-        height: 0.4375rem;
+        width: 0.375rem;
+        height: 0.375rem;
         border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.25);
         border: none;
         padding: 0;
         cursor: pointer;
-        transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+        transition: background 0.2s ease, width 0.2s ease;
       }
-      .dot:hover { background: rgba(255, 255, 255, 0.6); }
+      .dot:hover { background: rgba(255, 255, 255, 0.55); }
       .dot.active {
         background: var(--primary);
-        width: 1.25rem;
+        width: 1rem;
         border-radius: 9999px;
       }
       .dot[data-tip]:hover::after {
@@ -205,26 +198,28 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.4375rem 0.875rem;
-        border-radius: 0.5rem;
-        background: var(--primary);
-        border: 1px solid var(--primary);
+        padding: 0.375rem 0.75rem;
+        border-radius: 0.25rem;
+        background: transparent;
+        border: 1px solid var(--foreground);
         margin-bottom: 1.5rem;
       }
-      .badge svg { width: 0.875rem; height: 0.875rem; color: #ffffff; }
+      .badge svg { width: 0.875rem; height: 0.875rem; color: var(--primary); }
       .badge span {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         font-size: 0.6875rem;
-        font-weight: 700;
-        color: #ffffff;
-        letter-spacing: 0.1em;
+        font-weight: 600;
+        color: var(--foreground);
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
       .section-label {
-        font-size: 0.75rem;
-        font-weight: 700;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.6875rem;
+        font-weight: 600;
         color: var(--primary);
-        letter-spacing: 0.16em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         margin-bottom: 0.75rem;
         display: inline-flex;
@@ -234,7 +229,7 @@
       .section-label::before {
         content: '';
         width: 1.5rem;
-        height: 2px;
+        height: 1px;
         background: var(--primary);
         display: inline-block;
       }
@@ -293,21 +288,23 @@
         padding: 0 0.5rem;
       }
       .stat-value {
-        font-size: clamp(2.25rem, 3.5vw, 3rem);
-        font-weight: 800;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: clamp(2rem, 3.2vw, 2.75rem);
+        font-weight: 700;
         color: var(--foreground);
         font-variant-numeric: tabular-nums;
         line-height: 1.0;
-        letter-spacing: -0.03em;
+        letter-spacing: -0.02em;
       }
       .stat-value .unit { color: var(--primary); }
       .stat-label {
-        font-size: 0.6875rem;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.625rem;
         color: var(--muted-foreground);
-        margin-top: 0.5rem;
+        margin-top: 0.625rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        font-weight: 700;
+        font-weight: 600;
       }
       .highlight {
         display: flex;
@@ -316,17 +313,17 @@
         text-align: left;
         background: var(--card);
         border: 1px solid var(--border);
-        border-left: 3px solid var(--primary);
-        border-radius: 0.5rem;
+        border-left: 2px solid var(--primary);
+        border-radius: 0.25rem;
         padding: 1rem 1.25rem;
         margin: 0 auto 2rem;
         max-width: 38rem;
       }
       .icon-box {
         flex-shrink: 0;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 0.5rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 0.25rem;
         background: var(--foreground);
         display: flex;
         align-items: center;
@@ -348,34 +345,35 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.875rem 1.625rem;
-        border-radius: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.25rem;
         background: var(--primary);
         color: var(--primary-foreground);
-        font-weight: 700;
-        font-size: 0.9375rem;
-        letter-spacing: -0.005em;
-        transition: background 0.15s ease, transform 0.15s ease;
+        font-weight: 600;
+        font-size: 0.875rem;
+        letter-spacing: 0;
+        transition: background 0.15s ease;
         cursor: pointer;
         border: none;
       }
-      .cta:hover { background: var(--primary-deep); transform: translateY(-1px); }
+      .cta:hover { background: var(--primary-deep); }
       .cta svg { width: 1.125rem; height: 1.125rem; }
       .nav-hint {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         margin-top: 1.5rem;
-        font-size: 0.75rem;
+        font-size: 0.6875rem;
         color: var(--muted-foreground);
         letter-spacing: 0.04em;
       }
       .nav-hint kbd {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         display: inline-block;
         padding: 0.125rem 0.4375rem;
-        border-radius: 0.25rem;
+        border-radius: 0.1875rem;
         background: var(--muted);
         border: 1px solid var(--border);
-        font-family: inherit;
-        font-size: 0.6875rem;
-        font-weight: 700;
+        font-size: 0.625rem;
+        font-weight: 600;
         color: var(--foreground);
         margin: 0 0.125rem;
       }
@@ -392,9 +390,9 @@
       }
       .day-num-big {
         flex-shrink: 0;
-        width: 4.25rem;
-        height: 4.25rem;
-        border-radius: 0.625rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 0.25rem;
         background: var(--foreground);
         color: var(--primary-foreground);
         display: flex;
@@ -403,40 +401,45 @@
         justify-content: center;
         font-variant-numeric: tabular-nums;
         line-height: 1;
-        gap: 0.125rem;
+        gap: 0.1875rem;
       }
       .day-num-big .lbl {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         font-size: 0.5625rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
+        font-weight: 600;
+        letter-spacing: 0.14em;
         color: var(--primary);
       }
       .day-num-big .num {
-        font-weight: 800;
-        font-size: 1.75rem;
-        letter-spacing: -0.03em;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-weight: 700;
+        font-size: 1.625rem;
+        letter-spacing: -0.02em;
       }
       .slide.sprint .day-num-big { background: var(--primary); }
       .slide.sprint .day-num-big .lbl { color: var(--foreground); }
       .day-meta { flex: 1 1 16rem; min-width: 0; }
       .day-date {
-        font-size: 0.75rem;
-        font-weight: 700;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.6875rem;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.1em;
         color: var(--primary);
         margin-bottom: 0.5rem;
       }
       .day-tag {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         display: inline-block;
         margin-left: 0.625rem;
         padding: 0.1875rem 0.5rem;
-        border-radius: 0.25rem;
-        background: var(--primary);
-        color: var(--primary-foreground);
-        font-size: 0.625rem;
-        font-weight: 800;
-        letter-spacing: 0.14em;
+        border-radius: 0.1875rem;
+        background: transparent;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        font-size: 0.5625rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         vertical-align: middle;
       }
@@ -448,18 +451,18 @@
         border-top: 1px solid var(--border);
       }
       .day-people strong {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         color: var(--foreground);
-        font-weight: 700;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        font-size: 0.6875rem;
+        font-size: 0.625rem;
         margin-right: 0.5rem;
       }
 
       .note-bar {
         background: var(--foreground);
-        border: 1px solid var(--foreground);
-        border-radius: 0.5rem;
+        border-radius: 0.25rem;
         padding: 0.75rem 1rem;
         font-size: 0.8125rem;
         color: #ffffff;
@@ -484,21 +487,22 @@
         grid-template-columns: 5.25rem 1fr;
         gap: 0.875rem;
         padding: 0.75rem 0.875rem 0.75rem 0.75rem;
-        border-radius: 0.375rem;
+        border-radius: 0.25rem;
         background: var(--background);
         border: 1px solid var(--border);
-        border-left: 3px solid var(--border);
+        border-left: 2px solid var(--border);
         transition: border-left-color 0.15s ease, background 0.15s ease;
       }
       .session:hover { background: var(--card); }
       .s-time {
-        font-size: 0.8125rem;
-        font-weight: 700;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.75rem;
+        font-weight: 600;
         color: var(--foreground);
         font-variant-numeric: tabular-nums;
-        letter-spacing: -0.01em;
+        letter-spacing: 0;
         white-space: nowrap;
-        padding-top: 0.0625rem;
+        padding-top: 0.125rem;
       }
       .s-body { min-width: 0; }
       .s-title {
@@ -516,52 +520,50 @@
         margin: 0;
       }
       .s-tag {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         display: inline-block;
         margin-left: 0.4375rem;
-        padding: 0.0625rem 0.4375rem;
-        border-radius: 0.1875rem;
+        padding: 0.0625rem 0.375rem;
+        border-radius: 0.125rem;
         font-size: 0.5625rem;
-        font-weight: 800;
-        letter-spacing: 0.12em;
+        font-weight: 600;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         vertical-align: middle;
         line-height: 1.5;
+        background: transparent;
+        border: 1px solid currentColor;
       }
 
-      .session.sprint-hi {
-        border-left-color: var(--primary);
-        background: var(--card);
-      }
-      .session.sprint-hi .s-time { color: var(--primary); }
+      /* Highlighted sessions (orange accent) */
+      .session.sprint-hi,
       .session.hi {
         border-left-color: var(--primary);
       }
+      .session.sprint-hi .s-time,
       .session.hi .s-time { color: var(--primary); }
-      .session.fixed {
-        border-left-color: #c0392b;
-        background: #fdf3f1;
-      }
-      .session.fixed .s-time { color: #962a1f; }
-      .session.fixed .s-tag { background: #c0392b; color: #ffffff; }
-      .session.presentation {
-        border-left-color: #b8860b;
-        background: #fdf8e8;
-      }
-      .session.presentation .s-time { color: #6b4f04; }
-      .session.presentation .s-tag { background: #b8860b; color: #ffffff; }
+      .session.sprint-hi { background: var(--card); }
+
+      /* Fixed / presentation / product — monochrome with orange accent, distinguished by tag */
+      .session.fixed,
+      .session.presentation,
       .session.product {
-        border-left-color: #a02c7d;
-        background: #fbf1f7;
+        border-left-color: var(--foreground);
       }
-      .session.product .s-time { color: #6f1f55; }
-      .session.product .s-tag { background: #a02c7d; color: #ffffff; }
+      .session.fixed .s-time,
+      .session.presentation .s-time,
+      .session.product .s-time { color: var(--foreground); }
+      .session.fixed .s-tag,
+      .session.presentation .s-tag,
+      .session.product .s-tag { color: var(--foreground); }
+
       .session.break {
         background: var(--muted);
         border-color: var(--border);
         border-left-color: var(--border);
       }
-      .session.break .s-time { color: var(--muted-foreground); font-weight: 600; }
-      .session.break .s-title { color: var(--muted-foreground); font-weight: 600; }
+      .session.break .s-time { color: var(--muted-foreground); font-weight: 500; }
+      .session.break .s-title { color: var(--muted-foreground); font-weight: 500; }
 
       .day-rest {
         flex: 1;
@@ -597,12 +599,12 @@
       .pf-card {
         background: var(--background);
         border: 1px solid var(--border);
-        border-top: 3px solid var(--foreground);
-        border-radius: 0.375rem;
+        border-top: 2px solid var(--foreground);
+        border-radius: 0.25rem;
         padding: 1.5rem;
-        transition: border-top-color 0.2s ease, transform 0.2s ease;
+        transition: border-top-color 0.2s ease;
       }
-      .pf-card:hover { border-top-color: var(--primary); transform: translateY(-2px); }
+      .pf-card:hover { border-top-color: var(--primary); }
       .pf-emoji { font-size: 1.75rem; line-height: 1; margin-bottom: 0.75rem; }
       .pf-name {
         font-weight: 800;
@@ -612,11 +614,12 @@
         letter-spacing: -0.015em;
       }
       .pf-tag {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         color: var(--primary);
-        font-weight: 700;
-        font-size: 0.6875rem;
+        font-weight: 600;
+        font-size: 0.625rem;
         margin: 0 0 0.625rem;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
       .pf-desc { color: var(--body); font-size: 0.875rem; line-height: 1.55; margin: 0; }
@@ -831,16 +834,17 @@
       slides.push({
         label: 'Welcome',
         html: `
-          <div class="blob blob-tl"></div>
-          <div class="blob blob-br"></div>
           <div class="slide-content hero">
+            <div class="badge">
+              <span>Apr 22 – 29 · Denver</span>
+            </div>
             <h1 class="hero-title">Strategy &amp; <span class="accent">Product Week</span></h1>
             <p class="slide-sub" style="text-align:center;margin-left:auto;margin-right:auto;">
-              Eight focused days to align strategy, run a Design Sprint, and lock the roadmap together.
+              Eight focused days to align strategy, shape the product, and lock the roadmap together.
             </p>
             <div class="stats">
               <div class="stat"><div class="stat-value">8</div><div class="stat-label">Days</div></div>
-              <div class="stat"><div class="stat-value">3</div><div class="stat-label">Sprint Days</div></div>
+              <div class="stat"><div class="stat-value">3</div><div class="stat-label">Working Sessions</div></div>
               <div class="stat"><div class="stat-value">10<span class="unit">–</span>5</div><div class="stat-label">Daily Hours</div></div>
             </div>
             <div class="highlight">
@@ -850,18 +854,18 @@
                 </svg>
               </div>
               <div>
-                <p class="highlight-title">April 22 – 29, 2026 · Denver</p>
-                <p class="highlight-text">10:00 AM – 5:00 PM &nbsp;·&nbsp; Breaks 11:30 &amp; 3:30 &nbsp;·&nbsp; Lunch 1:00 PM</p>
+                <p class="highlight-title">10:00 AM – 5:00 PM · Denver</p>
+                <p class="highlight-text">Breaks 11:30 &amp; 3:30 &nbsp;·&nbsp; Lunch 1:00 PM</p>
               </div>
             </div>
-            <p class="nav-hint">Use <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd> to navigate · <kbd>F</kbd> for fullscreen</p>
+            <p class="nav-hint"><kbd>←</kbd> <kbd>→</kbd> to navigate &nbsp;·&nbsp; <kbd>F</kbd> fullscreen</p>
           </div>
         `
       });
 
       // Slides 1..8 — One per day
       DAYS.forEach((day) => {
-        const tag = day.sprint ? '<span class="day-tag">Sprint</span>' : '';
+        const tag = day.sprint ? '<span class="day-tag">Working Session</span>' : '';
         let body = `
           <header class="day-header">
             <div class="day-num-big"><span class="lbl">DAY</span><span class="num">${day.n}</span></div>
@@ -919,16 +923,13 @@
       slides.push({
         label: 'Thank You',
         html: `
-          <div class="blob blob-tl"></div>
-          <div class="blob blob-br"></div>
           <div class="slide-content closing">
             <div class="badge">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z"/></svg>
               <span>See you in Denver</span>
             </div>
-            <h2 class="slide-title" style="text-align:center;">Let’s ship a <span class="accent">great week</span>.</h2>
+            <h2 class="slide-title" style="text-align:center;">Let's ship a <span class="accent">great week</span>.</h2>
             <p class="slide-sub" style="text-align:center;margin-left:auto;margin-right:auto;">
-              Download the full agenda as a Word document for offline reference and sharing with the team.
+              Download the full agenda as a Word document for offline reference.
             </p>
             <a class="cta" href="/api/agenda">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -938,7 +939,7 @@
               </svg>
               Download Agenda (.docx)
             </a>
-            <p class="nav-hint">360 Sierra · Strategy &amp; Product Week 2026 · Confidential</p>
+            <p class="nav-hint">360 Sierra · Strategy &amp; Product Week · 2026 · Confidential</p>
           </div>
         `
       });
