@@ -98,8 +98,8 @@ function legendTable() {
   return new Table({ width: { size: 9360, type: WidthType.DXA }, columnWidths: [2000, 2700, 4660],
     rows: [
       new TableRow({ children: [hCell("Who", 2000), hCell("Availability", 2700), hCell("Focus", 4660)] }),
-      row("Andres (CEO) & Paola",    "Full week — Wed Apr 22 to Wed Apr 29", "Vision presentation, Sprint facilitation, all sessions"),
-      row("Matt & Heath (Evolve)", "Full week — Wed Apr 22 to Wed Apr 29", "Operations, design partner alignment, Sprint input"),
+      row("Andres (CEO) & Paola",    "Full week — Wed Apr 22 to Wed Apr 29", "Vision presentation, facilitation, all sessions"),
+      row("Matt & Heath (Evolve)", "Full week — Wed Apr 22 to Wed Apr 29", "Operations, design partner alignment, working-session input"),
       row("Sam (Evolve)",            "Wed Apr 22 – Sat Apr 26 (morning)",    "Business model, revenue, commercial strategy"),
       row("David (Wildwood)",        "By session — enters & exits",           "VC lens, SAFE/legal, 1:1 with Evolve team"),
       row("Nick (Wildwood)",         "By session — enters & exits",           "Go-to-market, commercial strategy"),
@@ -134,8 +134,8 @@ function formatKeyTable() {
     rows: [
       new TableRow({ children: [hCell("Format", 1600), hCell("Name", 2200), hCell("What it means", 5560)] }),
       kRow("PRESENTATION", C.presText,  C.presBg,     "360 Sierra Story",  "Andres & Paola present. No structured exercises. This is our moment."),
-      kRow("SPRINT-LITE",  C.orangeDeep,C.orangeLight, "Open Sprint",       "Discussion with a note-taker at the board. Time-boxed but conversational. Used for strategy, pricing, GTM."),
-      kRow("SPRINT",       C.white,     C.orange,      "Formal Sprint",     "Full GV Sprint methodology: structured exercises, individual sketching, dot voting, firm time-boxes. All product days."),
+      kRow("DISCUSSION",   C.orangeDeep,C.orangeLight, "Open Discussion",   "Conversational session with a note-taker at the board. Time-boxed but collaborative. Used for strategy, pricing, GTM."),
+      kRow("WORKING",      C.white,     C.orange,      "Working Session",   "Full-day collaborative working session. One board, one note-taker, everyone contributes. Used for product, systems, and roadmap days."),
       kRow("FIXED",        C.fixedText, C.fixedBg,     "Fixed Block",       "Pre-confirmed meeting — time and participants locked."),
     ]
   });
@@ -143,12 +143,12 @@ function formatKeyTable() {
 
 // ─── DAY HEADER ───────────────────────────────────────────────────────────
 function dayHdr(num, date, theme, type = "normal") {
-  // type: "normal" | "lite" | "sprint"
+  // type: "normal" | "lite" | "sprint"  (sprint now means full working-session day)
   const isSprint = type === "sprint";
   const isLite   = type === "lite";
   const bgColor  = isSprint ? C.orange : C.black;
   const txtColor = C.white;
-  const label    = isSprint ? "  \u00B7  SPRINT DAY" : (isLite ? "  \u00B7  SPRINT-LITE" : "");
+  const label    = isSprint ? "  \u00B7  WORKING SESSION" : (isLite ? "  \u00B7  DISCUSSION" : "");
   const arrow    = isSprint ? "\u25B6  " : "";
 
   return new Paragraph({
@@ -298,7 +298,7 @@ const children = [
     "Andres, Paola, Matt, Heath, Sam  \u00B7  David & Nick join from afternoon"
   ),
   tbl([
-    blk("10:00 AM", "Welcome & Week Overview",       "Opening: format, goals, 8-day agenda, Sprint methodology overview. Set expectations for how decisions will be made across the week."),
+    blk("10:00 AM", "Welcome & Week Overview",       "Opening: format, goals, 8-day agenda, and how the working sessions will run. Set expectations for how decisions will be made across the week."),
     blk("10:15 AM", "360 Sierra \u2014 Story, Vision & Product Portfolio", "Origin story, what we are building, why now, and the path to 10,000 and 50,000 vehicles. Walk through the full product architecture: 360 Sierra (company), RentalBuddy (operator management), Shakkii (AI operations), and Lemonade (booking platform). Align on naming and how each product tells part of the overall story.", "presentation"),
     blk("11:30 AM", "Break",                         "", "break"),
     blk("11:45 AM", "Strategy, Positioning & Competitive Differentiation", "3\u20135 year direction and success metrics (ARR, market share). Competitive landscape and 360 Sierra\u2019s unfair advantage \u2014 what makes us hard to copy.", "hi"),
@@ -315,15 +315,14 @@ const children = [
   // ══════════════════════════════════════════════
   // DAY 2 — Thursday April 23
   // ══════════════════════════════════════════════
-  dayHdr(2, "Thursday, April 23", "Design Partner, GTM & Joint Alignment", "lite"),
+  dayHdr(2, "Thursday, April 23", "Design Partner, GTM & Investor Alignment", "lite"),
   ...metaLines(
     "Close the Evolve design partner role, define ICP, pricing and GTM. Afternoon: 1:1 with David, open investor Q&A, and a social gathering with Wildwood to close the day.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  Nick joins for GTM  \u00B7  David joins afternoon (1:1 and Q&A)  \u00B7  Wildwood joins 4:00 PM (social)"
   ),
-  noteBar("Fixed: 1:1 Evolve \u00D7 David \u2014 2:00 to 3:00 PM (Andres and Paola are not in this session)  \u00B7  Wildwood \u00D7 Evolve \u00D7 360 Sierra social \u2014 4:00 to 5:30 PM"),
   tbl([
     blk("10:00 AM", "Recap & Open Items",              "Resolve any open loops from Day 1 before today\u2019s sessions."),
-    blk("10:15 AM", "Evolve as Design Partner",        "Define the role formally: what Evolve contributes, what they receive, how product decisions get made together. Close all open loops before the Sprint.", "hi"),
+    blk("10:15 AM", "Evolve as Design Partner",        "Define the role formally: what Evolve contributes, what they receive, how product decisions get made together. Close all open loops before the working sessions begin.", "hi"),
     blk("11:30 AM", "Break",                           "", "break"),
     blk("11:45 AM", "ICP & Pricing Strategy",          "Define the ideal customer profile (operator size, segment, geography) and the pricing logic that fits \u2014 packaging, tiers, contract length.", "hi"),
     blk("12:20 PM", "Go-to-Market Strategy",           "Define together the commercial model, sales motion, channel strategy, and partnership model. Work through the path to 10K vehicles. Nick joins.", "hi"),
@@ -343,7 +342,6 @@ const children = [
     "Set the three-year vision. Draw the full operator and customer flows. Move into the transactional core: booking rules, utilization, vehicle management, and OTA integrations.",
     "Andres, Paola, Matt, Heath, Sam  \u00B7  1 Evolve ops team member (in person)"
   ),
-  noteBar("Working format: one board, one note-taker. Everyone contributes. We stay in one conversation until we reach decisions."),
   tbl([
     blk("10:00 AM", "Kickoff & Ground Rules",         "Open the week as a team: how we will work, how decisions get made, how we capture notes. No solo work today \u2014 everything happens on the board.", "sprint-hi"),
     blk("10:15 AM", "Long-Term Goal",                 "As a group: where does 360 Sierra need to be in three years? The product, the operator base, the brand. Written on the board. Anchors every decision that follows.", "sprint-hi"),
