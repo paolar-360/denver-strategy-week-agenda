@@ -362,19 +362,19 @@ const children = [
   // ══════════════════════════════════════════════
   // DAY 4 — Saturday April 25 — FOUNDATIONS & RENTALBUDDY ROADMAP (half-day)
   // ══════════════════════════════════════════════
-  dayHdr(4, "Saturday, April 25", "Foundations & RentalBuddy Roadmap", "sprint"),
+  dayHdr(4, "Saturday, April 25", "Foundations & Lemonade Roadmap", "sprint"),
   ...metaLines(
-    "Close out the transactional layer: access, security, payments, compliance, tenancy, rates, and fraud. Lock the RentalBuddy roadmap before Sam departs.",
+    "Close out the transactional layer: access, security, payments, compliance, tenancy, rates, and fraud. Lock the Lemonade roadmap before Sam departs.",
     "Andres, Paola, Matt, Heath, Sam (morning only)"
   ),
   tbl([
-    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s booking-core decisions. Frame Saturday: foundations (access, payments, tenancy, rates, fraud) and the RentalBuddy roadmap.", "sprint-hi"),
+    blk("10:00 AM", "Recap & Focus",                  "Reconnect with Friday\u2019s booking-core decisions. Frame Saturday: foundations (access, payments, tenancy, rates, fraud) and the Lemonade roadmap.", "sprint-hi"),
     blk("10:10 AM", "User Access, Security & Payments", "MFA required across the board, no shared users. Role- and location-based access levels. Logging and auditing of sensitive actions. PCI scope, payment gateway integrations. Who can issue refunds and modify payments, and under what controls.", "sprint-hi"),
     blk("10:50 AM", "System Setup, Tenancy & Compliance", "Single- vs multi-country. Tax rules: inclusive/exclusive, state and country level, tax-exempt bookings. Sensitive data retention and GDPR right-to-erasure flows. Franchise and multi-tenant branding \u2014 what is shared, what is isolated.", "sprint-hi"),
     blk("11:15 AM", "Break",                          "", "break"),
     blk("11:30 AM", "Rates Engine & Fraud Controls",   "Rental period calculation: 24-hour, calendar day, hourly, part-day. Rate types: Retail, Corporate, Agent, Long-term/subscription. Seasons, locations, categories. In-system vs 3rd-party rate aggregator. When rates re-calculate. Do-Not-Rent list, blacklists, risk checks, manual overrides.", "sprint-hi"),
-    blk("12:15 PM", "Roadmap \u2014 RentalBuddy / Booking Core", "Lock the RentalBuddy roadmap. Sequence the transactional core: onboarding, booking engine, rates, payments, real-time fleet data, OTA and channel integrations, agent portal, check-in/return flow. MVP, v1.1, post-Seed. Dependencies and ownership.", "sprint-hi"),
-    blk("1:00 PM",  "Close & Sam Farewell",           "Quick wrap-up of Saturday\u2019s foundations and the RentalBuddy roadmap. Sam departs.", "hi"),
+    blk("12:15 PM", "Roadmap \u2014 Lemonade",              "Lock the Lemonade roadmap. Sequence the transactional core: onboarding, booking engine, rates, payments, real-time fleet data, OTA and channel integrations, agent portal, check-in/return flow. MVP, v1.1, post-Seed. Dependencies and ownership.", "sprint-hi"),
+    blk("1:00 PM",  "Close & Sam Farewell",           "Quick wrap-up of Saturday\u2019s foundations and the Lemonade roadmap. Sam departs.", "hi"),
   ], true),
   sp(),
 
@@ -405,7 +405,7 @@ const children = [
     blk("2:30 PM",  "MCP Servers, Agents & Orchestration", "How MCP servers and agents orchestrate the stack end-to-end. Data contracts, tool-use boundaries, memory and state, how agents read/write across RentalBuddy, Communications, and Lemonade.", "sprint-hi"),
     blk("3:30 PM",  "Break",                          "", "break"),
     blk("3:45 PM",  "Build vs. Integrate \u2014 Per Module", "For each AI module: do we build, wrap an existing provider, or integrate and own the orchestration? Speed-to-market vs. defensibility. Cost ceilings.", "sprint-hi"),
-    blk("4:15 PM",  "Roadmap \u2014 AI Layer",                "Lock the AI roadmap. Which modules ship in MVP, which in v1.1, which post-Seed. Sequence and dependencies on RentalBuddy and the Communications layer.", "sprint-hi"),
+    blk("4:15 PM",  "Roadmap \u2014 AI Layer",                "Lock the AI roadmap. Which modules ship in MVP, which in v1.1, which post-Seed. Sequence and dependencies on Lemonade and the Communications layer.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
@@ -429,7 +429,7 @@ const children = [
     blk("2:45 PM",  "Third-Party Network & Repairer Portals", "Portals for repairers and service partners. They see what they need, nothing more. All partner comms in one place.", "sprint-hi"),
     blk("3:15 PM",  "Break",                          "", "break"),
     blk("3:30 PM",  "Proactive Monitoring \u2014 Errors & Missed Opportunities", "When something breaks, the system flags it and offers a fix before it escalates. When a search returns no availability, we log the missed demand.", "sprint-hi"),
-    blk("4:15 PM",  "Roadmap \u2014 Communications Layer",    "Lock the Communications roadmap. What ships in MVP, v1.1, and post-Seed. Dependencies on RentalBuddy and AI.", "sprint-hi"),
+    blk("4:15 PM",  "Roadmap \u2014 Communications Layer",    "Lock the Communications roadmap. What ships in MVP, v1.1, and post-Seed. Dependencies on Lemonade and AI.", "sprint-hi"),
     blk("5:00 PM",  "End of Day",                     "", "sprint-hi"),
   ], true),
   sp(),
@@ -443,7 +443,7 @@ const children = [
     "Andres, Paola, Matt, Heath"
   ),
   tbl([
-    blk("10:00 AM", "Week Recap & Lock",              "Walk through every decision made across the week: maps, AI roadmap, RentalBuddy roadmap, Communications roadmap, Foundations. Confirm nothing is open.", "hi"),
+    blk("10:00 AM", "Week Recap & Lock",              "Walk through every decision made across the week: maps, AI roadmap, Lemonade roadmap, Communications roadmap, Foundations. Confirm nothing is open.", "hi"),
     blk("10:45 AM", "Action Items & Working Cadence",  "Every action item with owner and deadline between 360 Sierra and Evolve. Define the working format from here on: how we meet, how we share progress, how we raise blockers, and the reporting cadence.", "hi"),
     blk("11:15 AM", "Investment \u2014 Next Steps",          "Transfer timeline, SAFE execution steps, reporting structure.", "hi"),
     blk("11:45 AM", "Closing Remarks & Farewell",     "Acknowledge the work done. Communication cadence going forward.", "hi"),
