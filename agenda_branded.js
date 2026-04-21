@@ -330,7 +330,7 @@ const children = [
     blk("1:00 PM",  "Lunch",                           "", "break"),
     blk("2:00 PM",  "1:1 \u2014 Evolve \u00D7 David",             "Evolve team (Matt, Heath, Sam) and David. Private session. Andres and Paola are not present.", "fixed"),
     blk("3:00 PM",  "Risk, Open Q&A & De-risking",     "Open floor for remaining investor questions. Address risk factors, execution confidence, and what de-risks the bet.", "hi"),
-    blk("4:00 PM",  "Wildwood \u00D7 Evolve \u00D7 360 Sierra \u2014 Social", "Casual gathering to close the day, not a working session. Relaxed time for the three parties to get to know each other. Location confirmed separately.", "hi"),
+    blk("4:00 PM",  "Wildwood \u00D7 Evolve \u00D7 360 Sierra \u2014 Social", "Drinks & dinner.", "hi"),
     blk("5:30 PM",  "End of Day",                      ""),
   ]),
   sp(),
